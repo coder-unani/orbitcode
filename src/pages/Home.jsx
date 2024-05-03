@@ -4,6 +4,7 @@ import { ReactComponent as Logo } from '../assets/logo.svg';
 import { ReactComponent as View } from '../assets/view.svg';
 import { ReactComponent as Line } from '../assets/line.svg';
 import { ReactComponent as Arrow } from '../assets/arrow.svg';
+import { ReactComponent as Menu } from '../assets/menu.svg';
 
 const Home = () => {
   return (
@@ -20,6 +21,7 @@ const Home = () => {
             <li className='menu__item'>Projects</li>
             <li className='menu__item'>Contact</li>
           </ul>
+          <Menu className='menu__icon' width={32} height={32} />
         </nav>
       </header>
       <main>
