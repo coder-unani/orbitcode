@@ -1,5 +1,6 @@
 import React from 'react';
-import './Home.css';
+// import './Home.css';
+import './Home.dev.css';
 import { ReactComponent as Logo } from '../assets/logo.svg';
 import { ReactComponent as View } from '../assets/view.svg';
 import { ReactComponent as Line } from '../assets/line.svg';
@@ -88,6 +89,45 @@ const Home = () => {
                 <div className='left'>
                   <Logo width={22} height={22} fill={'white'} />
                   <p>reviewniverse</p>
+                </div>
+                <div className="right">
+                  <View width={24} height={24} />
+                  <Line width={16} />
+                </div>
+              </div>
+              <div className='content__desc'></div>
+            </div>
+            <div className='content'>
+              <div className='content__title'>
+                <div className='left'>
+                  <Logo width={22} height={22} fill={'white'} />
+                  <p>project name</p>
+                </div>
+                <div className="right">
+                  <View width={24} height={24} />
+                  <Line width={16} />
+                </div>
+              </div>
+              <div className='content__desc'></div>
+            </div>
+            <div className='content'>
+              <div className='content__title'>
+                <div className='left'>
+                  <Logo width={22} height={22} fill={'white'} />
+                  <p>project name</p>
+                </div>
+                <div className="right">
+                  <View width={24} height={24} />
+                  <Line width={16} />
+                </div>
+              </div>
+              <div className='content__desc'></div>
+            </div>
+            <div className='content'>
+              <div className='content__title'>
+                <div className='left'>
+                  <Logo width={22} height={22} fill={'white'} />
+                  <p>project name</p>
                 </div>
                 <div className="right">
                   <View width={24} height={24} />
