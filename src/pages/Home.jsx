@@ -4,7 +4,6 @@ import { ReactComponent as Logo } from '../assets/logo.svg';
 import { ReactComponent as View } from '../assets/view.svg';
 import { ReactComponent as Line } from '../assets/line.svg';
 import { ReactComponent as Arrow } from '../assets/arrow.svg';
-import { ReactComponent as Menu } from '../assets/menu.svg';
 import { ReactComponent as Comet2 } from '../assets/comet-2.svg';
 import { ReactComponent as Star } from '../assets/star.svg';
 import Header from '../components/Header';

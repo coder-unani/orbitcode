@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { ReactComponent as Logo } from '../assets/logo.svg';
 import { ReactComponent as Menu } from '../assets/menu.svg';
 
