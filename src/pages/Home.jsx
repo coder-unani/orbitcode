@@ -1,6 +1,5 @@
 import React from 'react';
-// import './Home.css';
-import './Home.dev.css';
+import './Home.css';
 import { ReactComponent as Logo } from '../assets/logo.svg';
 import { ReactComponent as View } from '../assets/view.svg';
 import { ReactComponent as Line } from '../assets/line.svg';
