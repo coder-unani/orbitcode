@@ -240,6 +240,12 @@ section {
     background-color: $white-color;
     border-radius: 10px;
     z-index: 1;
+
+    strong {
+      display: block;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
   }
 }
 
@@ -415,8 +421,8 @@ section {
     bottom: 19.5rem;
     left: 50%;
     transform: translateX(-50%);
-    width: 142rem;
-    height: 142rem;
+    width: 120%;
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
     background-color: $white-color;
   }
@@ -439,6 +445,12 @@ section {
   .sub__title p {
     color: #AF5FFF;
     z-index: 1;
+  }
+
+  .contact__content {
+    p {
+      font-size: 2rem;
+    }
   }
 }
 
