@@ -123,7 +123,7 @@ section {
     align-items: center;
     justify-content: flex-start;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1450px;
     margin: 0 auto;
   }
 
@@ -133,21 +133,12 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;
     pointer-events: none;
-
-    img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
-    
-    img:nth-child(odd) {
-      object-position: bottom;
-    }
-
-    img:nth-child(even) {
-      object-position: top;
+    font-size: 16px;
+  
+    img,
+    svg {
+      mix-blend-mode: difference;
     }
   }
 
@@ -156,7 +147,7 @@ section {
     justify-content: center;
     gap: 10px;
     height: auto;
-    @include main-font(5rem, 900);
+    @include main-font(4rem, 900);
     letter-spacing: -2.4px;
     line-height: 1;
 
@@ -173,17 +164,47 @@ section {
 }
 
 #home {
+  #comet1 {
+    mix-blend-mode: difference;
+    position: absolute;
+    top: 0.5%;
+    left: 12%;
+    height: 15rem;
+    z-index: 0;
+  }
+
+  #planet1 {
+    mix-blend-mode: difference;
+    position: absolute;
+    top: -52.5em;
+    left: 35.5em;
+    width: 95.25em;
+    transform: rotate(3.465deg);
+  }
+
+  #star1 {
+    mix-blend-mode: difference;
+    position: absolute;
+    bottom: -2%;
+    left: 33%;
+    width: 6em;
+    z-index: 1;
+  }
+
   .section__container {
     align-items: flex-start;
     justify-content: flex-end;
+    max-width: none;
+    gap: 0;
   }
 
   .main__title {
-    position: absolute;
-    top: 56%;
-    left: -2%;
+    position: relative;
+    left: 20rem;
     @include main-font(16px, 900, italic, $white-color);
     letter-spacing: -4.2px;
+    transition: all 0.2s ease-in-out;
+    margin-bottom: 5em;
 
     .title__first {
       mix-blend-mode: difference;
@@ -215,12 +236,39 @@ section {
     line-height: 32px;
     letter-spacing: -0.6px;
     text-align: left;
+    padding: 12px 20px;
+    background-color: $white-color;
+    border-radius: 10px;
     z-index: 1;
   }
 }
 
 #service {
   background-color: $black-color;
+
+  #star2 {
+    mix-blend-mode: difference;
+    position: absolute;
+    top: 0;
+    left: 31%;
+    width: 3.6em;
+  }
+
+  #planet2 {
+    mix-blend-mode: difference;
+    position: absolute;
+    bottom: -7.5%;
+    left: -8.5%;
+    width: 41em;
+    height: auto;
+    z-index: 1; 
+  }
+
+  #bgService {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
 
   .sub__title {
     z-index: 1;
@@ -278,6 +326,7 @@ section {
     position: relative;
     display: flex;
     flex-wrap: wrap;
+    padding: 0 60px;
 
     .button {
       position: absolute;
@@ -286,7 +335,7 @@ section {
       transform: translate(-50%, -50%);
       display: flex;
       justify-content: space-between;
-      width: calc(100% + 80px);
+      width: calc(100% - 50px);
 
       button {
         display: flex;
@@ -342,7 +391,7 @@ section {
 
         .left p {
           font-family: Inter;
-          font-size: 20px;
+          font-size: 1.25rem;
           font-weight: 400;
         }
       }
@@ -358,6 +407,34 @@ section {
 
 #contact {
   padding: 120px 60px 230px 60px;
+  background-color: $black-color;
+  overflow: hidden;
+
+  #circle {
+    position: absolute;
+    bottom: 19.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 142rem;
+    height: 142rem;
+    border-radius: 50%;
+    background-color: $white-color;
+  }
+
+  #astronaut {
+    position: absolute;
+    bottom: 7%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60rem;
+    height: auto;
+  }
+
+  #bgContact {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
 
   .sub__title p {
     color: #AF5FFF;
@@ -387,6 +464,13 @@ footer {
   #menu {
     .menu__list {
       gap: 15px;
+    }
+  }
+
+  #home {
+    .main__title {
+      left: 0;
+      margin-left: 12px;
     }
   }
 }
@@ -427,7 +511,21 @@ footer {
     padding: 60px 15px 75px;
   }
 
+  #home {
+    padding: 60px 60px 75px;
+
+    .main__title {
+      font-size: 14px;
+    }
+  }
+
   #service {
+    #planet2 {
+      bottom: -5.5%;
+      left: -20%;
+      width: 30em;
+    }
+
     .service__content {
       div:nth-child(1) {
         grid-column: 1 / span 2;
@@ -445,12 +543,19 @@ footer {
       grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
     }
   }
+
+  #contact {
+    #circle {
+      // top: -75.5%;
+    }
+  }
 }
 
 @media all and (max-width: 768px) {
-  #home .main__title {
-    /* left: 30px; */
-    font-size: 8px;
+  #home {
+    .main__title {
+      font-size: 12px;
+    }
   }
 
   #service {
@@ -466,6 +571,17 @@ footer {
       }
     }
   }
+
+  #projects {
+    .project__content {
+      padding: 0;
+      
+      .button {
+        display: none;
+      }
+    }
+
+  }
 }
 
 /*
@@ -473,7 +589,7 @@ footer {
 */
 @media all and (max-width: 480px) {
   html {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   section {
@@ -481,30 +597,45 @@ footer {
       gap: 40px;
     }
 
-    .sub__title {
-      font-size: 4rem;
+    .background__img {
+      font-size: 12px;
     }
   }
 
   #home {
+    padding: 60px 15px 75px;
+
+    #planet1 {
+      left: 5.5em;
+    }
+
+    #star1 {
+      bottom: -3.5%;
+    }
+
     .main__title {
-      left: 20px;
+      font-size: 8px;
     }
 
     .main__desc {
-      line-height: 24px;
-      padding: 12px 20px;
-      background-color: $white-color;
-      border-radius: 10px;
+      line-height: 28px;
     }
   }
 
   #service {
+    #planet2 {
+      bottom: -3.5%;
+      left: -23%;
+      width: 26em;
+    }
+
     .service__content {
       gap: 10px;
 
       .content {
+        border-radius: 12px;
         padding: 24px 36px;
+        gap: 16px;
       }
     }
   }
@@ -520,22 +651,39 @@ footer {
 
       .content {
         flex-grow: 1;
-      }
 
-      .button {
-        display: none;
+        .content__title {
+          border-radius: 12px 12px 0 0;
+          padding: 12px 18px;
+        }
+
+        .content__desc {
+          border-radius: 0px 0px 12px 12px;
+        }
       }
     }
   }
 
   #contact {
     padding: 60px 15px 135px;
+
+    #circle {
+      // top: -110.5%;
+    }
   }
 
   footer {
     .footer {
       top: -60px;
       height: 60px;
+    }
+  }
+}
+
+@media all and (max-width: 320px) {
+  #home {
+    .main__title {
+      font-size: 6px;
     }
   }
 }

@@ -6,6 +6,8 @@ import { ReactComponent as View } from '../assets/view.svg';
 import { ReactComponent as Line } from '../assets/line.svg';
 import { ReactComponent as Arrow } from '../assets/arrow.svg';
 import { ReactComponent as Menu } from '../assets/menu.svg';
+import { ReactComponent as Comet2 } from '../assets/comet-2.svg';
+import { ReactComponent as Star } from '../assets/star.svg';
 
 const Home = () => {
   return (
@@ -28,10 +30,12 @@ const Home = () => {
       <main>
         <section id='home'>
           <figure className='background__img'>
-            <img src='/assets/bg-home.png' alt="background" />
+            <Comet2 id='comet1'/>
+            <Star id='star1'/>
           </figure>
           <div className="section__container">
             <div className='main__title'>
+              <img id='planet1' src='/assets/planet-1.png' alt="background" />
               <h1 className='title__first'>Orbit</h1>
               <h1 className='title__second'>Code<span>.</span></h1>
             </div>
@@ -42,7 +46,9 @@ const Home = () => {
         </section>
         <section id='service'>
           <figure className='background__img'>
-            <img src='/assets/bg-services.png' alt="background" />
+            <Star id='star2'/>
+            <img id='planet2' src='/assets/planet-2.png' alt="background" />
+            <img id='bgService' src='/assets/services.png' alt="background" />
           </figure>
           <div className="section__container">
             <div className='sub__title'>
@@ -71,9 +77,6 @@ const Home = () => {
           </div>
         </section>
         <section id='projects'>
-          <figure className='background__img'>
-            <img src='/assets/bg-projects.png' alt="background" />
-          </figure>
           <div className="section__container">
             <div className='sub__title'>
               <span>&lt;</span>
@@ -174,13 +177,18 @@ const Home = () => {
         </section>
         <section id='contact'>
           <figure className='background__img'>
-            <img src='/assets/bg-contact.png' alt="background" />
+            <div id='circle' />
+            <img id='astronaut' src='/assets/astronaut.png' alt="background" />
+            <img id='bgContact' src='/assets/contact.png' alt="background" />
           </figure>
           <div className="section__container">
             <div className='sub__title'>
               <span>&lt;</span>
               <p>Contact</p>
               <span>&#47;&gt;</span>
+            </div>
+            <div className="contact__content">
+              <a href='mailto:admin@orbitcode.kr'>메일 보내기</a>
             </div>
           </div>
         </section>
