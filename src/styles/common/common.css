@@ -14,8 +14,9 @@ html {
 
 body {
   position: relative;
-  width: 100%;
-  max-width: 1920px;
+  width: 100vw;
+  min-width: 320px;
+  /* max-width: 1920px; */
   margin: 0 auto;
   overflow-x: hidden;
 }
