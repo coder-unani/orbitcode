@@ -22,36 +22,6 @@ body {
   width: 100vw;
 }
 
-header {
-  /* position: fixed; */
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100vw;
-  height: 80px;
-  background: rgba(255, 255, 255, 0.60);
-  backdrop-filter: blur(20px);
-  padding: 15px 60px;
-  z-index: 100;
-
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-
-    p {
-      @include main-font(40px, 900, normal, $black-color);
-      line-height: 1;
-      letter-spacing: -0.6px;
-      transition: all 0.2s ease-in-out;
-    }
-  }
-}
-
 #menu {
   display: flex;
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import './Home.css';
 import { ReactComponent as Logo } from '../assets/logo.svg';
 import { ReactComponent as View } from '../assets/view.svg';
@@ -9,11 +9,24 @@ import { ReactComponent as Star } from '../assets/star.svg';
 import Header from '../components/Header';
 
 const Home = () => {
+  const [sections, setSections] = useState([
+    { title: 'Home', ref: useRef(null) },
+    { title: 'Services', ref: useRef(null) },
+    { title: 'Projects', ref: useRef(null) },
+    { title: 'Contact', ref: useRef(null) }
+  ]);
+
+  const scrollToSections = (title) => {
+    const section = sections.find(section => section.title === title);
+    section?.ref.current?.scrollIntoView({ behavior: 'smooth' });
+  }
+
+
   return (
     <>
-      <Header />
+      <Header menuList={sections.map(s => s.title)} onMenuClick={scrollToSections} />
       <main>
-        <section id='home'>
+        <section id='home' ref={sections[0].ref}>
           <figure className='background__img'>
             <Comet2 id='comet1'/>
             <Star id='star1'/>
@@ -28,12 +41,9 @@ const Home = () => {
               <strong>차원이 다른 웹 경험, 오르빗코드와 함께하세요.</strong>
               오르빗코드는 여러분의 비즈니스를 완벽하게 반영하는 맞춤형 웹사이트를 제공합니다. 고객의 니즈를 정밀하게 분석하여 창의적이고 혁신적인 디자인으로 구현해, 방문자들에게 잊지 못할 웹 경험을 선사합니다. 최신 기술과 최적화된 사용자 경험을 기반으로, 여러분의 비즈니스 성장을 가속화할 수 있는 강력한 온라인 플랫폼을 제공하겠습니다. 오르빗코드와 함께, 당신의 비즈니스가 온라인에서 빛나게 만드세요.
             </p>
-            {/* <p className='main__desc'>
-              당신의 비즈니스를 차원이 다른 곳으로 데려갈 맞춤형 웹 솔루션, 오르빗코드에서 시작하세요. 최신 기술과 창의적 디자인으로 당신의 아이디어를 실현합니다. 오르빗코드와 함께라면 가능성의 경계를 넘어서세요. 지금 바로 방문해 전문가와 상담하고, 당신만의 독특한 웹사이트를 만들어 보세요!
-            </p> */}
           </div>
         </section>
-        <section id='service'>
+        <section id='service' ref={sections[1].ref}>
           <figure className='background__img'>
             <Star id='star2'/>
             <img id='planet2' src='/assets/planet-2.png' alt="background" />
@@ -77,7 +87,7 @@ const Home = () => {
             </div>
           </div>
         </section>
-        <section id='projects'>
+        <section id='projects' ref={sections[2].ref}>
           <div className="section__container">
             <div className='sub__title'>
               <span>&lt;</span>
@@ -176,7 +186,7 @@ const Home = () => {
             </div>
           </div>
         </section>
-        <section id='contact'>
+        <section id='contact' ref={sections[3].ref}>
           <figure className='background__img'>
             <div id='circle' />
             <img id='astronaut' src='/assets/astronaut.png' alt="background" />
