@@ -21,7 +21,6 @@ const Home = () => {
     section?.ref.current?.scrollIntoView({ behavior: 'smooth' });
   }
 
-
   return (
     <>
       <Header menuList={sections.map(s => s.title)} onMenuClick={scrollToSections} />
@@ -188,7 +187,9 @@ const Home = () => {
         </section>
         <section id='contact' ref={sections[3].ref}>
           <figure className='background__img'>
-            <div id='circle' />
+            <div id='circle'>
+              <div id='rect' />
+            </div>
             <img id='astronaut' src='/assets/astronaut.png' alt="background" />
             <img id='bgContact' src='/assets/contact.png' alt="background" />
           </figure>
@@ -199,7 +200,9 @@ const Home = () => {
               <span>&#47;&gt;</span>
             </div>
             <div className="contact__content">
-              <p>admin@orbitcode.kr</p>
+              <div className="email">
+                <span>email</span>admin@orbitcode.kr
+              </div>
             </div>
           </div>
         </section>

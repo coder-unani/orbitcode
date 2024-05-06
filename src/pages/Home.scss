@@ -22,52 +22,6 @@ body {
   width: 100vw;
 }
 
-#menu {
-  display: flex;
-
-  .menu__icon {
-    display: none;
-  }
-
-  .menu__list {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    transition: all 0.2s ease-in-out;
-
-    .menu__item {
-      @include main-font(1.25rem, 400, normal, $black-color);
-      line-height: 1;
-      letter-spacing: -0.6px;
-      border: 2px solid $black-color;
-      border-radius: 100px;
-      background-color: $white-color;
-      padding: 9px 30px;
-      transition: all 0.2s ease-in-out;
-      cursor: pointer;
-
-      &:hover {
-        color: $white-color;
-        background-color: $black-color;
-      }
-    }
-  }
-  
-  .menu__list::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: $black-color;
-    z-index: -1;
-  }
-}
-
 main {
   overflow-x: hidden;
 }
@@ -134,6 +88,8 @@ section {
 }
 
 #home {
+  padding: 120px 60px;
+
   #comet1 {
     mix-blend-mode: difference;
     position: absolute;
@@ -234,7 +190,8 @@ section {
     mix-blend-mode: difference;
     position: absolute;
     bottom: -7.5%;
-    left: -8.5%;
+    // left: -8.5%;
+    left: -13.5em;
     width: 41em;
     height: auto;
     z-index: 1; 
@@ -386,6 +343,16 @@ section {
   background-color: $black-color;
   overflow: hidden;
 
+  #rect {
+    position: absolute;
+    background-color: $white-color;
+    width: 120vw;
+    height: 100vh;
+    bottom: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   #circle {
     position: absolute;
     bottom: 19.5rem;
@@ -418,8 +385,22 @@ section {
   }
 
   .contact__content {
-    p {
+    .email {
       font-size: 2rem;
+      border: 2px solid $black-color;
+      border-radius: 50px;
+      background-color: $white-color;
+      padding-right: 24px;
+
+      span {
+        display: inline-block;
+        height: 100%;
+        color: $white-color;
+        background-color: $black-color;
+        border-radius: 50px;
+        padding: 12px 24px;
+        margin-right: 24px;
+      }
     }
   }
 }
@@ -443,12 +424,6 @@ footer {
 
 /* responsive */
 @media all and (max-width: 1200px) {
-  #menu {
-    .menu__list {
-      gap: 15px;
-    }
-  }
-
   #home {
     .main__title {
       left: 0;
@@ -460,32 +435,6 @@ footer {
 @media all and (max-width: 1024px) {
   html {
     font-size: 14px;
-  }
-
-  header {
-    height: auto;
-    padding: 15px;
-
-    .logo {
-      svg {
-        width: 32px;
-        height: 32px;
-      }
-
-      p {
-        font-size: 30px;
-      }
-    } 
-  }
-  
-  #menu {
-    .menu__list {
-      display: none;
-    }
-
-    .menu__icon {
-      display: block;
-    }
   }
 
   section {
@@ -504,7 +453,7 @@ footer {
   #service {
     #planet2 {
       bottom: -5.5%;
-      left: -20%;
+      // left: -20%;
       width: 30em;
     }
 
@@ -525,15 +474,13 @@ footer {
       grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
     }
   }
-
-  #contact {
-    #circle {
-      // top: -75.5%;
-    }
-  }
 }
 
 @media all and (max-width: 768px) {
+  html {
+    font-size: 12px;
+  }
+
   #home {
     .main__title {
       font-size: 12px;
@@ -562,7 +509,20 @@ footer {
         display: none;
       }
     }
+  }
 
+  #contact {
+    .contact__content {
+      .email {
+        font-size: 1.5rem;
+        padding-right: 18px;
+
+        span {
+          padding: 10px 18px;
+          margin-right: 18px;
+        }
+      }
+    }
   }
 }
 
@@ -581,6 +541,10 @@ footer {
 
     .background__img {
       font-size: 12px;
+    }
+
+    .sub__title {
+      @include main-font(3rem, 900);
     }
   }
 
@@ -607,7 +571,7 @@ footer {
   #service {
     #planet2 {
       bottom: -3.5%;
-      left: -23%;
+      // left: -23%;
       width: 26em;
     }
 
@@ -648,10 +612,6 @@ footer {
 
   #contact {
     padding: 60px 15px 135px;
-
-    #circle {
-      // top: -110.5%;
-    }
   }
 
   footer {

@@ -24,4 +24,4 @@ const Header = ({ menuList, onMenuClick }) => {
   )
 }
 
-export default Header
+export default Header;
