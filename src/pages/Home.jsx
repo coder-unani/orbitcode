@@ -1,12 +1,12 @@
 import React, { useRef, useState } from 'react';
-import './Home.css';
-import { ReactComponent as Logo } from '../assets/logo.svg';
-import { ReactComponent as View } from '../assets/view.svg';
-import { ReactComponent as Line } from '../assets/line.svg';
-import { ReactComponent as Arrow } from '../assets/arrow.svg';
-import { ReactComponent as Comet2 } from '../assets/comet-2.svg';
-import { ReactComponent as Star } from '../assets/star.svg';
-import Header from '../components/Header';
+import 'styles/Home.scss';
+import { ReactComponent as Logo } from 'assets/logo.svg';
+import { ReactComponent as View } from 'assets/view.svg';
+import { ReactComponent as Line } from 'assets/line.svg';
+import { ReactComponent as Arrow } from 'assets/arrow.svg';
+import { ReactComponent as Comet2 } from 'assets/comet-2.svg';
+import { ReactComponent as Star } from 'assets/star.svg';
+import Header from 'components/Header';
 
 const Home = () => {
   const [sections, setSections] = useState([
@@ -30,9 +30,9 @@ const Home = () => {
             <Comet2 id='comet1'/>
             <Star id='star1'/>
           </figure>
-          <div className="section__container">
+          <div className='section__container'>
             <div className='main__title'>
-              <img id='planet1' src='/assets/planet-1.png' alt="background" />
+              <img id='planet1' src='/assets/planet-1.png' alt='background' />
               <h1 className='title__first'>Orbit</h1>
               <h1 className='title__second'>Code<span>.</span></h1>
             </div>
@@ -42,13 +42,13 @@ const Home = () => {
             </p>
           </div>
         </section>
-        <section id='service' ref={sections[1].ref}>
+        <section id='services' ref={sections[1].ref}>
           <figure className='background__img'>
             <Star id='star2'/>
-            <img id='planet2' src='/assets/planet-2.png' alt="background" />
-            <img id='bgService' src='/assets/services.png' alt="background" />
+            <img id='planet2' src='/assets/planet-2.png' alt='background' />
+            <img id='bgService' src='/assets/services.png' alt='background' />
           </figure>
-          <div className="section__container">
+          <div className='section__container'>
             <div className='sub__title'>
               <span>&lt;</span>
               <p>Services</p>
@@ -87,7 +87,7 @@ const Home = () => {
           </div>
         </section>
         <section id='projects' ref={sections[2].ref}>
-          <div className="section__container">
+          <div className='section__container'>
             <div className='sub__title'>
               <span>&lt;</span>
               <p>Projects</p>
@@ -109,7 +109,7 @@ const Home = () => {
                       <Logo width={22} height={22} fill={'white'} />
                       <p>reviewniverse</p>
                     </div>
-                    <div className="right">
+                    <div className='right'>
                       <View width={24} height={24} />
                       <Line width={16} />
                     </div>
@@ -122,7 +122,7 @@ const Home = () => {
                       <Logo width={22} height={22} fill={'white'} />
                       <p>project name</p>
                     </div>
-                    <div className="right">
+                    <div className='right'>
                       <View width={24} height={24} />
                       <Line width={16} />
                     </div>
@@ -135,7 +135,7 @@ const Home = () => {
                       <Logo width={22} height={22} fill={'white'} />
                       <p>project name</p>
                     </div>
-                    <div className="right">
+                    <div className='right'>
                       <View width={24} height={24} />
                       <Line width={16} />
                     </div>
@@ -148,7 +148,7 @@ const Home = () => {
                       <Logo width={22} height={22} fill={'white'} />
                       <p>project name</p>
                     </div>
-                    <div className="right">
+                    <div className='right'>
                       <View width={24} height={24} />
                       <Line width={16} />
                     </div>
@@ -161,7 +161,7 @@ const Home = () => {
                       <Logo width={22} height={22} fill={'white'} />
                       <p>project name</p>
                     </div>
-                    <div className="right">
+                    <div className='right'>
                       <View width={24} height={24} />
                       <Line width={16} />
                     </div>
@@ -174,7 +174,7 @@ const Home = () => {
                       <Logo width={22} height={22} fill={'white'} />
                       <p>project name</p>
                     </div>
-                    <div className="right">
+                    <div className='right'>
                       <View width={24} height={24} />
                       <Line width={16} />
                     </div>
@@ -190,17 +190,17 @@ const Home = () => {
             <div id='circle'>
               <div id='rect' />
             </div>
-            <img id='astronaut' src='/assets/astronaut.png' alt="background" />
-            <img id='bgContact' src='/assets/contact.png' alt="background" />
+            <img id='astronaut' src='/assets/astronaut.png' alt='background' />
+            <img id='bgContact' src='/assets/contact.png' alt='background' />
           </figure>
-          <div className="section__container">
+          <div className='section__container'>
             <div className='sub__title'>
               <span>&lt;</span>
               <p>Contact</p>
               <span>&#47;&gt;</span>
             </div>
-            <div className="contact__content">
-              <div className="email">
+            <div className='contact__content'>
+              <div className='email'>
                 <span>email</span>admin@orbitcode.kr
               </div>
             </div>

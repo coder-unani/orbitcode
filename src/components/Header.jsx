@@ -1,15 +1,26 @@
-import React from 'react';
-import { ReactComponent as Logo } from '../assets/logo.svg';
-import { ReactComponent as Menu } from '../assets/menu.svg';
-import './Header.css';
+import React, { useState } from 'react';
+import Menu from 'components/Modal/Menu';
+import { ReactComponent as MenuIcon } from 'assets/menu.svg';
+import { ReactComponent as Logo } from 'assets/logo.svg';
+import 'styles/Header.scss';
 
-const Header = ({ menuList, onMenuClick }) => {
+const Header = (props) => {
+  const { menuList, onMenuClick } = props;
   const brandName = 'OrbitCode';
+  const [showMenu, setShowMenu] = useState(false); 
+
+  const handleClickMenu = () => {
+    setShowMenu(!showMenu);
+  }
+
+  const handleCloseMenu = () => {
+    setShowMenu(false);
+  }
 
   return (
     <header>
       <div className='logo'>
-          <Logo width={40} height={40} fill={'black'} />
+          <Logo fill={'black'} />
           <p>{brandName}</p>
         </div>
         <nav id='menu'>
@@ -18,7 +29,10 @@ const Header = ({ menuList, onMenuClick }) => {
               <li key={index} className='menu__item' onClick={() => onMenuClick(menu)}>{menu}</li>
             ))}
           </ul>
-          <Menu className='menu__icon' width={32} height={32} />
+          <button>
+            <MenuIcon className='menu__icon' onClick={handleClickMenu} />
+            {showMenu && <Menu menuList={menuList} onClose={handleCloseMenu} onMenuClick={onMenuClick} />}
+          </button>
         </nav>
     </header>
   )

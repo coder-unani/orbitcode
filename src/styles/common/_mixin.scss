@@ -1,0 +1,17 @@
+@use 'styles/common/color' as color;
+
+@mixin main-font($size: 16px, $weight: 400, $style: normal, $color: color.$white) {
+  font-family: "Source Code Pro", monospace;
+  font-size: $size;
+  font-weight: $weight;
+  font-style: $style;
+  color: $color;
+}
+
+@mixin sub-font($size: 16px, $weight: 400, $style: normal, $color: color.$white) {
+  font-family: "Inter", sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+  font-style: $style;
+  color: $color;
+}

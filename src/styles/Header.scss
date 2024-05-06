@@ -1,21 +1,5 @@
-$black-color: black;
-$white-color: white;
-
-@mixin main-font($size: 16px, $weight: 400, $style: normal, $color: $white-color) {
-  font-family: "Source Code Pro", monospace;
-  font-size: $size;
-  font-weight: $weight;
-  font-style: $style;
-  color: $color;
-}
-
-@mixin sub-font($size: 16px, $weight: 400, $style: normal, $color: $white-color) {
-  font-family: "Inter", sans-serif;
-  font-size: $size;
-  font-weight: $weight;
-  font-style: $style;
-  color: $color;
-}
+@use 'styles/common/color' as color;
+@use 'styles/common/mixin' as mixin;
 
 header {
   position: fixed;
@@ -37,9 +21,14 @@ header {
     align-items: center;
     gap: 10px;
     cursor: pointer;
+    
+    svg {
+      width: 2.5rem;
+      height: 2.5rem;      
+    }
 
     p {
-      @include main-font(40px, 900, normal, $black-color);
+      @include mixin.main-font(2.5rem, 900, normal, color.$logo-color);
       line-height: 1;
       letter-spacing: -0.6px;
       transition: all 0.2s ease-in-out;
@@ -52,6 +41,8 @@ header {
 
   .menu__icon {
     display: none;
+    width: 2.5rem;
+    height: 2.5rem;
   }
 
   .menu__list {
@@ -62,19 +53,19 @@ header {
     transition: all 0.2s ease-in-out;
 
     .menu__item {
-      @include main-font(1.25rem, 400, normal, $black-color);
+      @include mixin.main-font(1.25rem, 400, normal, color.$button-color);
       line-height: 1;
       letter-spacing: -0.6px;
-      border: 2px solid $black-color;
+      border: 2px solid color.$button-color;
       border-radius: 100px;
-      background-color: $white-color;
+      background-color: color.$background-color;
       padding: 9px 30px;
       transition: all 0.2s ease-in-out;
       cursor: pointer;
 
       &:hover {
-        color: $white-color;
-        background-color: $black-color;
+        color: color.$background-color;
+        background-color: color.$button-color;
       }
     }
   }
@@ -88,7 +79,7 @@ header {
     display: block;
     width: 100%;
     height: 2px;
-    background-color: $black-color;
+    background-color: color.$button-color;
     z-index: -1;
   }
 }
@@ -105,17 +96,6 @@ header {
   header {
     height: auto;
     padding: 15px;
-    
-    .logo {
-      svg {
-        width: 32px;
-        height: 32px;
-      }
-
-      p {
-        font-size: 30px;
-      }
-    }
   }
 
   #menu {

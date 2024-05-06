@@ -1,21 +1,5 @@
-$black-color: black;
-$white-color: white;
-
-@mixin main-font($size: 16px, $weight: 400, $style: normal, $color: $white-color) {
-  font-family: "Source Code Pro", monospace;
-  font-size: $size;
-  font-weight: $weight;
-  font-style: $style;
-  color: $color;
-}
-
-@mixin sub-font($size: 16px, $weight: 400, $style: normal, $color: $white-color) {
-  font-family: "Inter", sans-serif;
-  font-size: $size;
-  font-weight: $weight;
-  font-style: $style;
-  color: $color;
-}
+@use 'styles/common/color' as color;
+@use 'styles/common/mixin' as mixin;
 
 body {
   position: relative;
@@ -36,7 +20,7 @@ section {
   // min-height: 100vh;
   min-height: calc(var(--vh, 1vh) * 100);
   padding: 120px 60px 150px 60px;
-  background-color: $white-color;
+  background-color: color.$background-color;
   
   .section__container {
     flex-grow: 1;
@@ -71,7 +55,7 @@ section {
     justify-content: center;
     gap: 10px;
     height: auto;
-    @include main-font(4rem, 900);
+    @include mixin.main-font(4rem, 900);
     letter-spacing: -2.4px;
     line-height: 1;
 
@@ -127,7 +111,7 @@ section {
   .main__title {
     position: relative;
     left: 20rem;
-    @include main-font(16px, 900, italic, $white-color);
+    @include mixin.main-font(16px, 900, italic, color.$background-color);
     letter-spacing: -4.2px;
     transition: all 0.2s ease-in-out;
     margin-bottom: 5em;
@@ -158,12 +142,12 @@ section {
     display: block;
     width: auto;
     max-width: 854px;
-    @include main-font(1.25rem, 400, normal, $black-color);
+    @include mixin.main-font(1.25rem, 400, normal, color.$main-color);
     line-height: 32px;
     letter-spacing: -0.6px;
     text-align: left;
     padding: 12px 20px;
-    background-color: $white-color;
+    background-color: color.$background-color;
     border-radius: 10px;
     z-index: 1;
 
@@ -175,8 +159,8 @@ section {
   }
 }
 
-#service {
-  background-color: $black-color;
+#services {
+  background-color: color.$main-color;
 
   #star2 {
     mix-blend-mode: difference;
@@ -227,14 +211,14 @@ section {
       border-radius: 16px;
       background: rgba(255, 255, 255, 0.10);
       backdrop-filter: blur(20px);
-      padding: 35px 50px;
+      padding: 32px 40px;
       
       .content__title {
-        @include sub-font(2rem, 700);
+        @include mixin.sub-font(1.75rem, 700);
       }
   
       .content__desc {
-        @include sub-font(1.25rem, 300);
+        @include mixin.sub-font(1.25rem, 300);
         line-height: 1.75rem;
       }
     }
@@ -255,11 +239,19 @@ section {
   }
 
   .project__content {
-    flex: 1;
-    position: relative;
+    // flex: 1;
     display: flex;
     flex-wrap: wrap;
     padding: 0 60px;
+    
+    ul {
+      flex: 1;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
 
     .button {
       position: absolute;
@@ -268,7 +260,7 @@ section {
       transform: translate(-50%, -50%);
       display: flex;
       justify-content: space-between;
-      width: calc(100% - 50px);
+      width: calc(100% + 80px);
 
       button {
         display: flex;
@@ -276,8 +268,8 @@ section {
         justify-content: center;
         width: 80px;
         height:80px;
-        background-color: $white-color;
-        border: 2px solid $black-color;
+        background-color: color.$background-color;
+        border: 2px solid color.$button-color;
         border-radius: 100%;
         cursor: pointer;
 
@@ -287,25 +279,18 @@ section {
       }
     }
 
-    ul {
-      flex: 1;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
     .content {
       flex: 1;
       display: flex;
       flex-direction: column;
-      min-width: 300px;
-      min-height: 300px;
+      min-width: 30%;
+      aspect-ratio: 1 / 1;
       cursor: pointer;
 
       .content__title {
         display: flex;
         justify-content: space-between;
-        color: $white-color;
+        color: color.$background-color;
         padding: 16px 24px;
         background-color: #2e2e2e;
         border-radius: 16px 16px 0 0;
@@ -340,12 +325,12 @@ section {
 
 #contact {
   padding: 120px 60px 230px 60px;
-  background-color: $black-color;
+  background-color: color.$main-color;
   overflow: hidden;
 
   #rect {
     position: absolute;
-    background-color: $white-color;
+    background-color: color.$background-color;
     width: 120vw;
     height: 100vh;
     bottom: 50%;
@@ -361,7 +346,7 @@ section {
     width: 120%;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
-    background-color: $white-color;
+    background-color: color.$background-color;
   }
 
   #astronaut {
@@ -387,16 +372,16 @@ section {
   .contact__content {
     .email {
       font-size: 2rem;
-      border: 2px solid $black-color;
+      border: 2px solid color.$button-color;
       border-radius: 50px;
-      background-color: $white-color;
+      background-color: color.$background-color;
       padding-right: 24px;
 
       span {
         display: inline-block;
         height: 100%;
-        color: $white-color;
-        background-color: $black-color;
+        color: color.$background-color;
+        background-color: color.$button-color;
         border-radius: 50px;
         padding: 12px 24px;
         margin-right: 24px;
@@ -416,7 +401,7 @@ footer {
     align-items: center;
     width: 100%;
     height: 80px;
-    @include main-font(0.875rem, 300, normal, $white-color);
+    @include mixin.main-font(0.875rem, 300, normal, color.$footer-color);
     background: rgba(0, 0, 0, 0.40);
     backdrop-filter: blur(20px);
   }
@@ -428,6 +413,14 @@ footer {
     .main__title {
       left: 0;
       margin-left: 12px;
+    }
+  }
+
+  #projects {
+    .project__content {
+      .content {
+        min-width: 48%;
+      }
     }
   }
 }
@@ -450,7 +443,7 @@ footer {
     }
   }
 
-  #service {
+  #services {
     #planet2 {
       bottom: -5.5%;
       // left: -20%;
@@ -487,7 +480,7 @@ footer {
     }
   }
 
-  #service {
+  #services {
     .service__content {
       grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
 
@@ -507,6 +500,11 @@ footer {
       
       .button {
         display: none;
+      }
+
+      .content {
+        min-width: 100%;
+        aspect-ratio: 4 / 3;
       }
     }
   }
@@ -530,10 +528,6 @@ footer {
   mobile
 */
 @media all and (max-width: 480px) {
-  html {
-    font-size: 14px;
-  }
-
   section {
     .section__container {
       gap: 40px;
@@ -544,7 +538,7 @@ footer {
     }
 
     .sub__title {
-      @include main-font(3rem, 900);
+      @include mixin.main-font(3rem, 900);
     }
   }
 
@@ -568,7 +562,7 @@ footer {
     }
   }
 
-  #service {
+  #services {
     #planet2 {
       bottom: -3.5%;
       // left: -23%;
