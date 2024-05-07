@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react';
-import 'styles/Home.scss';
 import { ReactComponent as Logo } from 'assets/logo.svg';
 import { ReactComponent as View } from 'assets/view.svg';
 import { ReactComponent as Line } from 'assets/line.svg';
@@ -7,6 +6,12 @@ import { ReactComponent as Arrow } from 'assets/arrow.svg';
 import { ReactComponent as Comet2 } from 'assets/comet-2.svg';
 import { ReactComponent as Star } from 'assets/star.svg';
 import Header from 'components/Header';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Grid, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/grid';
+import 'swiper/css/pagination';
+import 'styles/Home.scss';
 
 const Home = () => {
   const [sections, setSections] = useState([
@@ -94,7 +99,7 @@ const Home = () => {
               <span>&#47;&gt;</span>
             </div>
             <div className='project__content'>
-              <ul>
+              {/* <ul>
                 <li className='button'>
                   <button>
                     <Arrow width={38} height={48} />
@@ -181,7 +186,52 @@ const Home = () => {
                   </div>
                   <div className='content__desc'></div>
                 </li>
-              </ul>
+              </ul> */}
+              <Swiper
+                slidesPerView={'auto'}
+                grid={{
+                  rows: 2,
+                  fill: 'row',
+                }}
+                spaceBetween={20}
+                pagination={{
+                  clickable: true,
+                }}
+                modules={[Grid, Pagination]}
+                breakpoints={{
+                  768: {
+                    slidesPerView: 2,
+                    grid: {
+                      rows: 2,
+                      fill: 'row',
+                    },
+                  },
+                  1024: {
+                    slidesPerView: 3,
+                    grid: {
+                      rows: 2,
+                      fill: 'row',
+                    },
+                  },
+                }}
+                className="mySwiper"
+              >
+                {new Array(10).fill(1).map((_, i) => (
+                  <SwiperSlide key={i} className='content'>
+                    <div className='content__title'>
+                      <div className='left'>
+                        <Logo width={22} height={22} fill={'white'} />
+                        <p>project name</p>
+                      </div>
+                      <div className='right'>
+                        <View width={24} height={24} />
+                        <Line width={16} />
+                      </div>
+                    </div>
+                    <div className='content__desc'></div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
             </div>
           </div>
         </section>
