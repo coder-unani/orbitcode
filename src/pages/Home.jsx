@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { ReactComponent as Logo } from 'assets/logo.svg';
 import { ReactComponent as View } from 'assets/view.svg';
 import { ReactComponent as Line } from 'assets/line.svg';
-import { ReactComponent as Arrow } from 'assets/arrow.svg';
+// import { ReactComponent as Arrow } from 'assets/arrow.svg';
 import { ReactComponent as Comet2 } from 'assets/comet-2.svg';
 import { ReactComponent as Star } from 'assets/star.svg';
 import Header from 'components/Header';
@@ -14,7 +14,8 @@ import 'swiper/css/pagination';
 import 'styles/Home.scss';
 
 const Home = () => {
-  const [sections, setSections] = useState([
+  // const [sections, setSections] = useState([
+  const [sections] = useState([
     { title: 'Home', ref: useRef(null) },
     { title: 'Services', ref: useRef(null) },
     { title: 'Projects', ref: useRef(null) },
