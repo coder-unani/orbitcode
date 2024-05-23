@@ -3,13 +3,11 @@
 import $ from "jquery";
 import Hammer from 'hammerjs';
 
-// window.addEventListener("load", () => {
 $(document).ready(function () {
   // DOMMouseScroll included for firefox support
   var canScroll = true;
   var scrollController = null;
 
-  // javascript 이벤트리스너로 변경
   $(this).on("mousewheel DOMMouseScroll", function (e) {
     if (!$(".outer-nav").hasClass("is-vis")) {
       e.preventDefault();
@@ -59,7 +57,6 @@ $(document).ready(function () {
     updateContent(curPos, nextPos, lastItem);
   });
 
-  // for test
   // swipe support for touch devices
   var targetElement = document.getElementById("viewport"),
     mc = new Hammer(targetElement);
