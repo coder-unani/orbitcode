@@ -45,8 +45,8 @@ const contentMain = {
     },
     button: {
       text: {
-        ko: "고용해주세요",
-        en: "Hire Us",
+        ko: "우리와 같이 떠나요!",
+        en: "Let's embark together!",
       },
     },
     logo: "",
@@ -55,44 +55,57 @@ const contentMain = {
     main: {
       image: "",
       title: {
-        ko: "고객 만족을 최우선으로 하는 비즈니스 솔루션",
-        en: "Business solutions that prioritize customer satisfaction",
+        ko: "당신의 비즈니스를 우주로!",
+        en: "Take Your Business to the Stars!",
+      },
+      description: {
+        ko: "Orbitcode와 함께 디지털 세상을 정복하세요. 최고의 디자인과 혁신적인 기술로 당신의 디지털 존재감을 극대화합니다.",
+        en: "Conquer the Digital Universe with Orbitcode. Maximize your digital presence with top-notch design and innovative technology.",
       },
       button: {
         text: {
-          ko: "고용해주세요",
-          en: "Hire Us",
+          ko: "우리와 같이 떠나요!",
+          en: "Let's embark together!",
         },
       },
     },
   },
   sectionMain: [
     {
-      title: { ko: "컨설팅 서비스", en: "Consulting Services" },
+      title: { ko: "혁신적인 디자인", en: "Innovative Design" },
       link: "#0",
       description: {
-        ko: "전문 컨설턴트들이 고객의 비즈니스 성장을 돕기 위해 맞춤형 전략을 제시합니다. 시장 분석, 경쟁력 평가 및 비즈니스 계획 수립을 통해 최적의 결과를 도출합니다.",
-        en: "Professional consultants provide customized strategies to help customers grow their businesses. Market analysis, competitiveness assessment, and business planning are used to achieve optimal outcomes.",
+        ko: "독창적이고 시선을 사로잡는 디자인으로 브랜드의 개성을 돋보이게 하며, 최신 디자인 트렌드를 반영하여 사용자 경험을 극대화합니다.",
+        en: "Our unique and eye-catching designs highlight your brand's individuality. By incorporating the latest design trends, we maximize user experience.",
       },
     },
     {
-      title: { ko: "IT 솔루션", en: "IT Solutions" },
+      title: { ko: "맞춤형 솔루션", en: "IT Solutions" },
       link: "#0",
       description: {
-        ko: "최신 기술을 활용한 IT 솔루션을 제공합니다. 시스템 통합, 소프트웨어 개발, 데이터 관리 등 다양한 서비스를 통해 효율성을 극대화합니다.",
+        ko: "각 고객의 요구에 맞춘 맞춤형 웹 솔루션을 제공하며, 유연하고 확장 가능한 웹사이트를 구축하여 비즈니스 성장에 기여합니다.",
         en: "Provides IT solutions utilizing the latest technologies, maximizing efficiency through a variety of services such as system integration, software development, and data management.",
       },
     },
     {
-      title: { ko: "마케팅 서비스", en: "Marketing Services" },
+      title: { ko: "지속적인 지원", en: "Marketing Services" },
       link: "#0",
       description: {
-        ko: "창의적이고 효과적인 마케팅 전략을 통해 브랜드 가치를 높입니다. 디지털 마케팅, 소셜 미디어 관리, 광고 캠페인 등을 포함한 종합 마케팅 서비스를 제공합니다.",
+        ko: "프로젝트 완료 후에도 지속적인 유지 보수와 지원을 통해 웹사이트의 안정성을 보장하며, 정기적인 업데이트와 최적화를 통해 항상 최신 상태를 유지합니다.",
         en: "Increase brand value through creative and effective marketing strategies. It provides comprehensive marketing services including digital marketing, social media management, and advertising campaigns.",
       },
     },
   ],
   sectionWork: [],
+  sectionAbout: {
+    main: {
+      image: "",
+      title: {
+        ko: "우주처럼 무한한 가능성으로 함께 디지털 세상을 탐험해요",
+        en: "With limitless possibilities like the universe, let's explore the digital world together!",
+      },
+    },
+  },
 };
 
 export { contentNav, contentMain, contentHome };

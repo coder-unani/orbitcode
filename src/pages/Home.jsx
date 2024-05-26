@@ -17,7 +17,7 @@ import { contentMain, contentNav } from "config/variables";
  */
 
 const Home = () => {
-  const lang = "en";
+  const lang = "ko";
   const navMenus = [];
 
   contentNav.map((item, index) =>
@@ -57,9 +57,9 @@ const Home = () => {
                 </a>
                 <button
                   className="header--cta cta"
-                  data-ko={contentMain["header"]["button"]["text"]["ko"]}
+                  data-ko={contentMain["header"]["button"]["text"][lang]}
                 >
-                  {contentMain["header"]["button"]["text"]["en"]}
+                  {contentMain["header"]["button"]["text"][lang]}
                 </button>
                 <div className="header--nav-toggle">
                   <span></span>
@@ -79,11 +79,16 @@ const Home = () => {
                   <div className="intro">
                     <div className="intro--banner">
                       <h1>{contentMain["banner"]["main"]["title"][lang]}</h1>
+                      <p>
+                        {contentMain["banner"]["main"]["description"][lang]}
+                      </p>
                       <button
                         className="cta"
-                        data-ko={contentMain["header"]["button"]["text"]["ko"]}
+                        data-ko={
+                          contentMain["banner"]["main"]["button"]["text"][lang]
+                        }
                       >
-                        {contentMain["header"]["button"]["text"]["en"]}
+                        {contentMain["banner"]["main"]["button"]["text"][lang]}
                         <RightArrowIcon />
                         <span className="btn-background"></span>
                       </button>
@@ -111,17 +116,16 @@ const Home = () => {
                           <a href="#0">
                             <div className="slider--item-image">
                               <img src="assets/img/work-dart.png" alt="dart" />
-                              {/* <img
-                                src="assets/img/work-victory.jpg"
-                                alt="Victory"
-                              /> */}
                             </div>
-                            <p className="slider--item-title">컨설팅 서비스</p>
+                            <p className="slider--item-title">
+                              {contentMain["sectionMain"][1]["title"][lang]}
+                            </p>
                             <p className="slider--item-description">
-                              전문 컨설턴트들이 고객의 비즈니스 성장을 돕기 위해
-                              맞춤형 전략을 제시합니다. 시장 분석, 경쟁력 평가
-                              및 비즈니스 계획 수립을 통해 최적의 결과를
-                              도출합니다.
+                              {
+                                contentMain["sectionMain"][1]["description"][
+                                  lang
+                                ]
+                              }
                             </p>
                           </a>
                         </li>
@@ -132,16 +136,16 @@ const Home = () => {
                                 src="assets/img/work-rocket.png"
                                 alt="rocket"
                               />
-                              {/* <img
-                                src="assets/img/work-metiew-smith.jpg"
-                                alt="Metiew and Smith"
-                              /> */}
                             </div>
-                            <p className="slider--item-title">IT 솔루션</p>
+                            <p className="slider--item-title">
+                              {contentMain["sectionMain"][0]["title"][lang]}
+                            </p>
                             <p className="slider--item-description">
-                              최신 기술을 활용한 IT 솔루션을 제공합니다. 시스템
-                              통합, 소프트웨어 개발, 데이터 관리 등 다양한
-                              서비스를 통해 효율성을 극대화합니다.
+                              {
+                                contentMain["sectionMain"][0]["description"][
+                                  lang
+                                ]
+                              }
                             </p>
                           </a>
                         </li>
@@ -152,17 +156,16 @@ const Home = () => {
                                 src="assets/img/work-planet.png"
                                 alt="planet"
                               />
-                              {/* <img
-                                src="assets/img/work-alex-nowak.jpg"
-                                alt="Alex Nowak"
-                              /> */}
                             </div>
-                            <p className="slider--item-title">마케팅 서비스</p>
+                            <p className="slider--item-title">
+                              {contentMain["sectionMain"][2]["title"][lang]}
+                            </p>
                             <p className="slider--item-description">
-                              창의적이고 효과적인 마케팅 전략을 통해 브랜드
-                              가치를 높입니다. 디지털 마케팅, 소셜 미디어 관리,
-                              광고 캠페인 등을 포함한 종합 마케팅 서비스를
-                              제공합니다.
+                              {
+                                contentMain["sectionMain"][2]["description"][
+                                  lang
+                                ]
+                              }
                             </p>
                           </a>
                         </li>
@@ -180,13 +183,7 @@ const Home = () => {
                   <div className="about">
                     <div className="about--banner">
                       <h2>
-                        우리는
-                        <br />
-                        열정적인
-                        <br />
-                        사람들을
-                        <br />
-                        믿습니다
+                        {contentMain["sectionAbout"]["main"]["title"][lang]}
                       </h2>
                       <img src="assets/img/about-visual-2.png" alt="About Us" />
                     </div>
@@ -208,11 +205,10 @@ const Home = () => {
                     <div className="contact--lockup">
                       <div className="modal">
                         <div className="modal--information">
-                          <p>서울특별시 중구 예시로 123</p>
-                          <a href="mailto:ouremail@gmail.com">
-                            contact@samplecompany.com
+                          <p>경기도 고양시 일산서구 일현로</p>
+                          <a href="mailto:info@orbitcode.kr">
+                            info@orbitcode.kr
                           </a>
-                          <a href="tel:+148126287560">+82 1234-5678</a>
                         </div>
                         <ul className="modal--options">
                           <li>
@@ -222,7 +218,7 @@ const Home = () => {
                             <a href="#0">twitter</a>
                           </li>
                           <li>
-                            <a href="mailto:ouremail@gmail.com">Contact Us</a>
+                            <a href="mailto:info@orbitcode.kr">Contact Us</a>
                           </li>
                         </ul>
                       </div>
@@ -236,44 +232,36 @@ const Home = () => {
                     <form className="work-request">
                       <div className="work-request--options">
                         <span className="options-a">
-                          <input
-                            id="opt-1"
-                            type="checkbox"
-                            value="app design"
-                          />
+                          <input id="opt-1" type="checkbox" value="homepage" />
                           <label htmlFor="opt-1">
                             <CheckIcon />
-                            App Design
+                            Homepage
                           </label>
                           <input
                             id="opt-2"
                             type="checkbox"
-                            value="graphic design"
+                            value="shoppingmall"
                           />
                           <label htmlFor="opt-2">
                             <CheckIcon />
-                            Graphic Design
+                            Shopping Mall
                           </label>
-                          <input
-                            id="opt-3"
-                            type="checkbox"
-                            value="motion design"
-                          />
+                          <input id="opt-3" type="checkbox" value="blog" />
                           <label htmlFor="opt-3">
                             <CheckIcon />
-                            Motion Design
+                            Blog
                           </label>
                         </span>
                         <span className="options-b">
-                          <input id="opt-4" type="checkbox" value="ux design" />
+                          <input id="opt-4" type="checkbox" value="Webdesign" />
                           <label htmlFor="opt-4">
                             <CheckIcon />
-                            UX Design
+                            Web Design
                           </label>
-                          <input id="opt-5" type="checkbox" value="webdesign" />
+                          <input id="opt-5" type="checkbox" value="ui/ux" />
                           <label htmlFor="opt-5">
                             <CheckIcon />
-                            Webdesign
+                            UI / UX
                           </label>
                           <input id="opt-6" type="checkbox" value="marketing" />
                           <label htmlFor="opt-6">
