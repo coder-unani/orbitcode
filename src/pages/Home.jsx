@@ -188,12 +188,6 @@ const Home = () => {
                         <br />
                         믿습니다
                       </h2>
-                      <a href="#0">
-                        회사 소개
-                        <span>
-                          <RightArrowIcon />
-                        </span>
-                      </a>
                       <img src="assets/img/about-visual-2.png" alt="About Us" />
                     </div>
                     <div className="about--options">

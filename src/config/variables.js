@@ -55,8 +55,8 @@ const contentMain = {
     main: {
       image: "",
       title: {
-        ko: "고객 만족을<br />최우선으로 하는<br />비즈니스 솔루션",
-        en: "Business solutions<br /> that prioritize<br /> customer satisfaction",
+        ko: "고객 만족을 최우선으로 하는 비즈니스 솔루션",
+        en: "Business solutions that prioritize customer satisfaction",
       },
       button: {
         text: {
