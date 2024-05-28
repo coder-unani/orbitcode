@@ -4,14 +4,13 @@ import Nav from 'components/Nav';
 import Intro from 'pages/Intro';
 import Work from 'pages/Work';
 import 'styles/Home.css';
+import About from './About';
+import Contact from './Contact';
 
 /**
  * @TODOS
- * 컴포넌트 분리
- * 1. header
- * 2. nav
- * 3. main
- * 4. footer
+ * - scroll down 시 컴포넌트 fade in, fade out 효과 추가
+ * - 카카오톡 문의 기능 추가
  */
 
 const Home = () => {
@@ -28,7 +27,10 @@ const Home = () => {
             <Work />
           </li>
           <li className="active">
-            <Work />
+            <About />
+          </li>
+          <li className="active">
+            <Contact />
           </li>
         </ul>
       </main>

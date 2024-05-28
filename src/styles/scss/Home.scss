@@ -131,6 +131,16 @@ $point-color: #00b098;
 }
 
 // keyframes
+@include keyframes(float) {
+  0%,
+  100% {
+    top: 40%;
+  }
+  50% {
+    top: 50%;
+  }
+}
+
 @include keyframes(fade-in-out) {
   0%,
   100% {
@@ -214,12 +224,14 @@ button {
 
 button.join {
   position: relative;
+  display: flex;
+  align-items: center;
   font-size: 14px;
   font-weight: 700;
   line-height: 1.6;
 
   i {
-    font-size: 16px;
+    font-size: 18px;
     margin-left: 4px;
   }
 }
@@ -438,17 +450,17 @@ button.join {
 
   button.join {
     position: relative;
-    padding: 5px 17px 5px 12px;
+    padding: 5px 12px;
     line-height: 1.4;
-    overflow: hidden;
 
     .background {
       position: absolute;
       top: 0;
-      left: 23px;
+      left: 35px;
       right: 0;
       height: 100%;
       background-color: $black;
+      border-radius: 20px;
       transition: left 0.2s ease-in-out;
       overflow: hidden;
       z-index: -1;
@@ -466,6 +478,7 @@ button.join {
         user-select: none;
         user-drag: none;
       }
+
       &::before {
         content: '';
         position: absolute;
@@ -639,4 +652,139 @@ button.join {
   .slider-next {
     right: 0;
   }
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 75%;
+  width: 900px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.about-banner {
+  position: relative;
+  width: 100%;
+  min-height: 475px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 100px;
+    transform: rotate(-25deg);
+    border-color: $point-color $black $black $point-color;
+    border-style: solid;
+    border-width: 5px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 55px;
+    left: 510px;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+    background-color: $point-color;
+  }
+
+  h2 {
+    position: relative;
+    max-width: 480px;
+    font-size: 62px;
+    font-weight: 900;
+    line-height: 1;
+    word-break: keep-all;
+    margin-top: 35px;
+    z-index: 1;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 60px;
+      left: 258px;
+      width: 20px;
+      height: 20px;
+      background-color: $point-color;
+      border-radius: 50%;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 230px;
+      left: 222px;
+      width: 10px;
+      height: 10px;
+      background-color: $point-color;
+    }
+  }
+
+  button.join {
+    position: relative;
+    padding: 5px 12px;
+    line-height: 1.4;
+
+    i {
+      position: relative;
+      left: 0;
+      transition: left 0.2s ease-in-out;
+    }
+
+    &:hover i {
+      left: 5px;
+    }
+  }
+
+  img {
+    position: absolute;
+    // top: 35px;
+    top: 50%;
+    right: -12px;
+    transform: translateY(-50%);
+    width: 60%;
+    @include animation(float 8s ease-in-out infinite);
+  }
+}
+
+.about-options {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 600px;
+
+  a {
+    position: relative;
+    width: 150px;
+    height: 75px;
+    border: 10px solid $point-color;
+    background-color: transparent;
+
+    h3 {
+      position: absolute;
+      bottom: -38px;
+      left: 10px;
+      font-size: 16px;
+      transition: bottom 0.2s ease-in-out;
+    }
+
+    &:hover h3 {
+      bottom: calc(-38px - 1em);
+    }
+  }
+}
+
+.contact {
+  // position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('assets/contact.png');
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
