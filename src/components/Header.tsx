@@ -10,7 +10,7 @@ const Header = () => {
           <p>ORBITCODE</p>
         </a>
       </div>
-      <button className="hire">우리와 같이 떠나요!</button>
+      <button className="join">우리와 같이 떠나요!</button>
       <button className="menu">
         <i className="ri-menu-line"></i>
         {/* <i className="ri-shining-2-fill"></i> */}

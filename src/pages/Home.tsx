@@ -3,9 +3,10 @@ import Header from 'components/Header';
 import Nav from 'components/Nav';
 import Intro from 'pages/Intro';
 import Work from 'pages/Work';
-import 'styles/Home.css';
 import About from './About';
 import Contact from './Contact';
+import Hire from './Hire';
+import 'styles/Home.css';
 
 /**
  * @TODOS
@@ -31,6 +32,9 @@ const Home = () => {
           </li>
           <li className="active">
             <Contact />
+          </li>
+          <li className="active">
+            <Hire />
           </li>
         </ul>
       </main>

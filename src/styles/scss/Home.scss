@@ -222,7 +222,7 @@ button {
   cursor: pointer;
 }
 
-button.hire {
+button.join {
   position: relative;
   display: flex;
   align-items: center;
@@ -234,6 +234,11 @@ button.hire {
     font-size: 18px;
     margin-left: 4px;
   }
+}
+
+input {
+  color: inherit;
+  font-size: inherit;
 }
 
 .wrap {
@@ -267,7 +272,7 @@ button.hire {
     }
   }
 
-  button.hire {
+  button.join {
     display: none;
     position: absolute;
     top: 50%;
@@ -448,7 +453,7 @@ button.hire {
     margin-bottom: 2em;
   }
 
-  button.hire {
+  button.join {
     position: relative;
     padding: 5px 12px;
     line-height: 1.4;
@@ -723,7 +728,7 @@ button.hire {
     }
   }
 
-  button.hire {
+  button.join {
     position: relative;
     padding: 5px 12px;
     line-height: 1.4;
@@ -846,5 +851,130 @@ button.hire {
       color: $white;
       padding: 8px 0;
     }
+  }
+}
+
+.hire {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 700px;
+  max-width: 75%;
+  height: 100%;
+  margin: 0 auto;
+
+  h2 {
+    font-size: 30px;
+    margin: 0 0 20px;
+  }
+}
+
+.work-request {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  color: $white;
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 30px 0;
+
+    input[type='checkbox'] {
+      display: none;
+    }
+
+    label {
+      display: block;
+      width: 200px;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 50px;
+      text-align: center;
+      border: 2px solid $white;
+      transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+      margin-bottom: 30px;
+      cursor: pointer;
+
+      i {
+        position: relative;
+        left: -5px;
+        width: 0px;
+        font-size: 0;
+        line-height: 16px;
+        transition: font-size 0.2s ease-in-out;
+      }
+    }
+
+    input[type='checkbox']:checked + label {
+      background-color: $point-color;
+      border-color: $point-color;
+
+      i {
+        font-size: 16px;
+      }
+    }
+
+    .options-a {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .options-b {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      width: 72%;
+    }
+  }
+
+  .information {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 60px;
+
+    .name,
+    .email {
+      font-size: 30px;
+      font-weight: 400;
+      height: 50px;
+      position: relative;
+      width: 45%;
+    }
+
+    input {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid $white;
+      border-radius: 0;
+      background-color: initial;
+      padding: 0 0 5px;
+    }
+
+    label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out;
+      pointer-events: none;
+    }
+  }
+
+  input[type='submit'] {
+    width: 400px;
+    max-width: 100%;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 50px;
+    border: none;
+    border-radius: 0;
+    background-color: $point-color;
   }
 }

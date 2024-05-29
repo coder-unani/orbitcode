@@ -223,7 +223,7 @@ button {
   cursor: pointer;
 }
 
-button.hire {
+button.join {
   position: relative;
   display: flex;
   align-items: center;
@@ -231,9 +231,14 @@ button.hire {
   font-weight: 700;
   line-height: 1.6;
 }
-button.hire i {
+button.join i {
   font-size: 18px;
   margin-left: 4px;
+}
+
+input {
+  color: inherit;
+  font-size: inherit;
 }
 
 .wrap {
@@ -263,7 +268,7 @@ button.hire i {
   font-weight: 700;
   margin: 0 0 0 10px;
 }
-.header-content button.hire {
+.header-content button.join {
   display: none;
   position: absolute;
   top: 50%;
@@ -422,12 +427,12 @@ button.hire i {
   word-break: keep-all;
   margin-bottom: 2em;
 }
-.intro-banner button.hire {
+.intro-banner button.join {
   position: relative;
   padding: 5px 12px;
   line-height: 1.4;
 }
-.intro-banner button.hire .background {
+.intro-banner button.join .background {
   position: absolute;
   top: 0;
   left: 35px;
@@ -439,7 +444,7 @@ button.hire i {
   overflow: hidden;
   z-index: -1;
 }
-.intro-banner button.hire .background::after {
+.intro-banner button.join .background::after {
   content: "";
   position: absolute;
   background: transparent;
@@ -452,7 +457,7 @@ button.hire i {
   user-select: none;
   user-drag: none;
 }
-.intro-banner button.hire .background::before {
+.intro-banner button.join .background::before {
   content: "";
   position: absolute;
   background: transparent;
@@ -464,7 +469,7 @@ button.hire i {
   height: 0;
   animation: mix 5s linear infinite;
 }
-.intro-banner button.hire:hover .background {
+.intro-banner button.join:hover .background {
   left: 0;
   background-color: rgba(255, 255, 255, 0.5);
 }
@@ -663,17 +668,17 @@ button.hire i {
   height: 10px;
   background-color: #00b098;
 }
-.about-banner button.hire {
+.about-banner button.join {
   position: relative;
   padding: 5px 12px;
   line-height: 1.4;
 }
-.about-banner button.hire i {
+.about-banner button.join i {
   position: relative;
   left: 0;
   transition: left 0.2s ease-in-out;
 }
-.about-banner button.hire:hover i {
+.about-banner button.join:hover i {
   left: 5px;
 }
 .about-banner img {
@@ -770,4 +775,115 @@ button.hire i {
   font-weight: 700;
   color: #ffffff;
   padding: 8px 0;
+}
+
+.hire {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 700px;
+  max-width: 75%;
+  height: 100%;
+  margin: 0 auto;
+}
+.hire h2 {
+  font-size: 30px;
+  margin: 0 0 20px;
+}
+
+.work-request {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  color: #ffffff;
+}
+.work-request .options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 30px 0;
+}
+.work-request .options input[type=checkbox] {
+  display: none;
+}
+.work-request .options label {
+  display: block;
+  width: 200px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 50px;
+  text-align: center;
+  border: 2px solid #ffffff;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+.work-request .options label i {
+  position: relative;
+  left: -5px;
+  width: 0px;
+  font-size: 0;
+  line-height: 16px;
+  transition: font-size 0.2s ease-in-out;
+}
+.work-request .options input[type=checkbox]:checked + label {
+  background-color: #00b098;
+  border-color: #00b098;
+}
+.work-request .options input[type=checkbox]:checked + label i {
+  font-size: 16px;
+}
+.work-request .options .options-a {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.work-request .options .options-b {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 72%;
+}
+.work-request .information {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 60px;
+}
+.work-request .information .name,
+.work-request .information .email {
+  font-size: 30px;
+  font-weight: 400;
+  height: 50px;
+  position: relative;
+  width: 45%;
+}
+.work-request .information input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #ffffff;
+  border-radius: 0;
+  background-color: initial;
+  padding: 0 0 5px;
+}
+.work-request .information label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out;
+  pointer-events: none;
+}
+.work-request input[type=submit] {
+  width: 400px;
+  max-width: 100%;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 50px;
+  border: none;
+  border-radius: 0;
+  background-color: #00b098;
 }
