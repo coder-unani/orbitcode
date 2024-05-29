@@ -200,6 +200,8 @@ body {
   background-color: #0c0c0c;
   background-image: url("assets/background_black.jpg");
   background-attachment: fixed;
+  height: 100vh;
+  overflow: hidden;
 }
 
 ol,
@@ -289,6 +291,11 @@ input {
   color: #ffffff;
 }
 
+@media (max-width: 767px) {
+  .header-content button.join {
+    display: none;
+  }
+}
 .nav-content {
   position: absolute;
   left: 0;
@@ -308,6 +315,7 @@ input {
   max-height: 750px;
   background-color: #555555;
   opacity: 0.35;
+  z-index: 10;
 }
 .nav-content ul {
   display: flex;
@@ -323,11 +331,16 @@ input {
   position: relative;
   top: -5px;
   font-size: 6px;
-  color: #00b098;
+  color: #ffffff;
   cursor: pointer;
 }
-.nav-content li::marker {
+.nav-content li.active {
   color: #00b098;
+  transition: color 0.4s ease-in-out;
+}
+.nav-content li::marker {
+  list-style-type: disc;
+  font-size: 0.5rem;
 }
 .nav-content li::before {
   position: absolute;
@@ -335,7 +348,7 @@ input {
   left: 10px;
   font-size: 14px;
   font-weight: 400;
-  color: #ffffff;
+  color: #555555;
 }
 .nav-content li:nth-child(1):before {
   content: "01";
@@ -354,9 +367,7 @@ input {
 }
 .nav-content li.active::before {
   left: -33px;
-}
-.nav-content li.active span {
-  opacity: 1;
+  color: #ffffff;
 }
 .nav-content li span {
   position: relative;
@@ -366,9 +377,22 @@ input {
   font-weight: 400;
   color: #ffffff;
   opacity: 0;
+  visibility: hidden;
+}
+.nav-content li.active span {
+  opacity: 1;
+  transition: opacity 0.4s ease-in-out;
+  visibility: visible;
 }
 
+@media (max-width: 1180px) {
+  .nav-content {
+    display: none;
+  }
+}
 .main-content {
+  position: relative;
+  width: 100%;
   height: 100%;
 }
 .main-content > ul {
@@ -377,13 +401,18 @@ input {
   list-style: none;
 }
 .main-content > ul > li {
+  position: absolute;
   width: 100%;
   height: 100%;
   opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease-in-out, visibility 0s 0.4s;
 }
 .main-content > ul > li.active {
   opacity: 1;
-  transition: opacity 0.5s ease-in-out;
+  visibility: visible;
+  transition: opacity 0.4s ease-in-out 0.4s;
+  z-index: 1;
 }
 
 .intro {
@@ -397,6 +426,11 @@ input {
   margin: 0 auto;
 }
 
+@media (max-width: 1180px) {
+  .intro {
+    max-width: 100%;
+  }
+}
 .intro-banner {
   position: relative;
   height: 475px;
@@ -518,6 +552,11 @@ input {
   margin: 0 0 20px;
 }
 
+@media (max-width: 1180px) {
+  .work {
+    max-width: 100%;
+  }
+}
 .work-lockup {
   position: relative;
 }
@@ -614,6 +653,11 @@ input {
   margin: 0 auto;
 }
 
+@media (max-width: 1180px) {
+  .about {
+    max-width: 100%;
+  }
+}
 .about-banner {
   position: relative;
   width: 100%;
@@ -687,8 +731,8 @@ input {
   right: -12px;
   transform: translateY(-50%);
   width: 60%;
-  -webkit-animation: float 8s ease-in-out infinite;
-  animation: float 8s ease-in-out infinite;
+  -webkit-animation: float 6s ease-in-out infinite;
+  animation: float 6s ease-in-out infinite;
 }
 
 .about-options {
@@ -716,6 +760,7 @@ input {
 }
 
 .contact {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -750,7 +795,7 @@ input {
   margin: 14px 0;
 }
 .contact-lockup .information p {
-  margin-bottom: 14px;
+  margin-top: 0;
 }
 .contact-lockup .options {
   list-style: none;
@@ -777,6 +822,11 @@ input {
   padding: 8px 0;
 }
 
+@media (max-width: 1180px) {
+  .contact-lockup {
+    max-width: 100%;
+  }
+}
 .hire {
   position: relative;
   display: flex;
@@ -793,6 +843,11 @@ input {
   margin: 0 0 20px;
 }
 
+@media (max-width: 1180px) {
+  .hire {
+    max-width: 100%;
+  }
+}
 .work-request {
   display: flex;
   flex-direction: column;
