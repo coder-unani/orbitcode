@@ -15,7 +15,7 @@ const Header = ({ componentIndex }: HeaderProps) => {
         </a>
       </div>
       <button className={`join ${componentIndex !== 0 && componentIndex !== 4 ? 'active' : ''}`}>
-        우리와 같이 떠나요!
+        우리와 같이 떠나요! 👋
       </button>
       <button className="menu">
         <i className="ri-menu-line"></i>
