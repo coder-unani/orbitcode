@@ -222,7 +222,7 @@ button {
   cursor: pointer;
 }
 
-button.join {
+button.hire {
   position: relative;
   display: flex;
   align-items: center;
@@ -267,7 +267,7 @@ button.join {
     }
   }
 
-  button.join {
+  button.hire {
     display: none;
     position: absolute;
     top: 50%;
@@ -341,7 +341,7 @@ button.join {
       top: 3px;
       left: 10px;
       font-size: 14px;
-      font-weight: 300;
+      font-weight: 400;
       color: $white;
     }
 
@@ -374,7 +374,7 @@ button.join {
       top: 3px;
       left: 10px;
       font-size: 14px;
-      font-weight: 300;
+      font-weight: 400;
       color: $white;
       opacity: 0;
     }
@@ -448,7 +448,7 @@ button.join {
     margin-bottom: 2em;
   }
 
-  button.join {
+  button.hire {
     position: relative;
     padding: 5px 12px;
     line-height: 1.4;
@@ -554,7 +554,7 @@ button.join {
   }
 }
 
-.work-lookup {
+.work-lockup {
   position: relative;
 
   .slider {
@@ -723,7 +723,7 @@ button.join {
     }
   }
 
-  button.join {
+  button.hire {
     position: relative;
     padding: 5px 12px;
     line-height: 1.4;
@@ -787,4 +787,64 @@ button.join {
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.contact-lockup {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 900px;
+  max-width: 75%;
+  height: 100%;
+  margin: 0 auto;
+
+  .modal {
+    text-align: center;
+    background-color: $background-color;
+    box-shadow: 0 0 30px 0 #000000bf;
+    padding: 45px;
+  }
+
+  .information {
+    a,
+    p {
+      display: block;
+      font-weight: 700;
+      color: $white;
+      margin: 14px 0;
+    }
+
+    p {
+      margin-bottom: 14px;
+    }
+  }
+
+  .options {
+    list-style: none;
+
+    li {
+      width: 135px;
+      margin: 0 auto 25px;
+
+      &:nth-child(1) {
+        background-color: #1769ff;
+      }
+      &:nth-child(2) {
+        background-color: #ea4c89;
+      }
+      &:nth-child(3) {
+        background-color: $point-color;
+        margin-bottom: 0;
+      }
+    }
+
+    a {
+      display: block;
+      width: 100%;
+      font-weight: 700;
+      color: $white;
+      padding: 8px 0;
+    }
+  }
 }

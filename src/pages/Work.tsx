@@ -4,7 +4,7 @@ const Work = () => {
   return (
     <div className="work">
       <h2>Works</h2>
-      <div className="work-lookup">
+      <div className="work-lockup">
         <ul className="slider">
           <li className="slider-item left">
             <a href="#">

@@ -5,7 +5,7 @@ const About = () => {
     <div className="about">
       <div className="about-banner">
         <h2>우주처럼 무한한 가능성으로 함께 디지털 세상을 탐험해요</h2>
-        <button className="join">
+        <button className="hire">
           우리의 궤도 속으로! 💫
           <i className="ri-arrow-right-line"></i>
         </button>

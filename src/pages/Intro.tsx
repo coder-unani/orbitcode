@@ -9,7 +9,7 @@ const Intro = () => {
           Orbitcode와 함께 디지털 세상을 정복하세요. 최고의 디자인과 혁신적인 기술로 당신의 디지털 존재감을
           극대화합니다.
         </p>
-        <button className="join">
+        <button className="hire">
           우리와 같이 떠나요! 👋
           <i className="ri-arrow-right-line"></i>
           <div className="background"></div>
