@@ -11,7 +11,7 @@ const Header = ({ componentIndex }: HeaderProps) => {
       <div className="logo">
         <a href="/">
           <Logo fill="white" width={26} height={26} />
-          <p>ORBITCODE</p>
+          <p>Orbitcode</p>
         </a>
       </div>
       <button className={`join ${componentIndex !== 0 && componentIndex !== 4 ? 'active' : ''}`}>

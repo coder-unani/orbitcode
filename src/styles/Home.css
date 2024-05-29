@@ -70,30 +70,6 @@
   src: url("https://cdn.jsdelivr.net/gh/webfontworld/sunn/SUIT-Heavy.eot?#iefix") format("embedded-opentype"), url("https://cdn.jsdelivr.net/gh/webfontworld/sunn/SUIT-Heavy.woff2") format("woff2"), url("https://cdn.jsdelivr.net/gh/webfontworld/sunn/SUIT-Heavy.woff") format("woff"), url("https://cdn.jsdelivr.net/gh/webfontworld/sunn/SUIT-Heavy.ttf") format("truetype");
   font-display: swap;
 }
-@-webkit-keyframes float {
-  0%, 100% {
-    top: 40%;
-  }
-  50% {
-    top: 50%;
-  }
-}
-@-moz-keyframes float {
-  0%, 100% {
-    top: 40%;
-  }
-  50% {
-    top: 50%;
-  }
-}
-@keyframes float {
-  0%, 100% {
-    top: 40%;
-  }
-  50% {
-    top: 50%;
-  }
-}
 @-webkit-keyframes fade-in-out {
   0%, 100% {
     opacity: 0;
@@ -232,6 +208,7 @@ button.join {
   font-size: 14px;
   font-weight: 700;
   line-height: 1.6;
+  z-index: 1;
 }
 button.join i {
   font-size: 18px;
@@ -469,7 +446,6 @@ input {
   position: relative;
   padding: 5px 12px;
   line-height: 1.4;
-  z-index: 1;
 }
 .intro-banner button.join .background {
   position: absolute;
@@ -561,7 +537,7 @@ input {
     height: auto;
   }
   .intro-banner::before {
-    display: none;
+    left: 0;
   }
   .intro-banner h1 {
     margin-top: 0;
@@ -849,10 +825,34 @@ input {
   -webkit-animation: float 6s ease-in-out infinite;
   animation: float 6s ease-in-out infinite;
 }
+@-webkit-keyframes float {
+  0%, 100% {
+    top: 40%;
+  }
+  50% {
+    top: 50%;
+  }
+}
+@-moz-keyframes float {
+  0%, 100% {
+    top: 40%;
+  }
+  50% {
+    top: 50%;
+  }
+}
+@keyframes float {
+  0%, 100% {
+    top: 40%;
+  }
+  50% {
+    top: 50%;
+  }
+}
 
 @media (max-width: 767px) {
   .about-banner {
-    height: 305px;
+    min-height: 305px;
   }
   .about-banner::before {
     top: 0;
@@ -880,7 +880,7 @@ input {
 }
 @media (max-width: 600px) {
   .about-banner {
-    height: auto;
+    min-height: auto;
   }
   .about-banner::before {
     left: 155px;
@@ -906,6 +906,32 @@ input {
     top: unset;
     bottom: -20px;
     opacity: 0.5;
+    -webkit-animation: float 6s ease-in-out infinite;
+    animation: float 6s ease-in-out infinite;
+  }
+  @-webkit-keyframes float {
+    0%, 100% {
+      top: 70%;
+    }
+    50% {
+      top: 80%;
+    }
+  }
+  @-moz-keyframes float {
+    0%, 100% {
+      top: 70%;
+    }
+    50% {
+      top: 80%;
+    }
+  }
+  @keyframes float {
+    0%, 100% {
+      top: 70%;
+    }
+    50% {
+      top: 80%;
+    }
   }
 }
 .about-options {
@@ -1110,6 +1136,7 @@ input {
   border-radius: 0;
   background-color: initial;
   padding: 0 0 5px;
+  outline: none;
 }
 .work-request .information label {
   position: absolute;
@@ -1118,7 +1145,12 @@ input {
   transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out;
   pointer-events: none;
 }
-.work-request input[type=submit] {
+.work-request .information input:focus + label,
+.work-request .information input.has-value + label {
+  top: -15px;
+  font-size: 14px;
+}
+.work-request button.submit {
   width: 400px;
   max-width: 100%;
   font-size: 16px;
@@ -1127,6 +1159,7 @@ input {
   border: none;
   border-radius: 0;
   background-color: #00b098;
+  cursor: pointer;
 }
 
 @media (max-width: 767px) {
@@ -1176,4 +1209,14 @@ input {
     height: 40px;
     font-size: 24px;
   }
+}
+.footer-content {
+  position: absolute;
+  bottom: 0;
+  display: fixed;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  margin-bottom: 10px;
+  z-index: 10;
 }

@@ -7,11 +7,16 @@ import 'styles/Home.css';
 import About from './About';
 import Contact from './Contact';
 import Hire from './Hire';
+import Footer from 'components/Footer';
 
 /**
  * @TODOS
- * - scroll down 시 컴포넌트 fade in, fade out 효과 추가
  * - 카카오톡 문의 기능 추가
+ * - work component에 gallery 추가
+ * - join 버튼 클릭 시 hire component로 이동
+ * - about component에 team 정보 추가
+ * - contact component에 버튼 수정
+ * - hire component에 form 기능 추가
  */
 
 const Home = () => {
@@ -66,25 +71,43 @@ const Home = () => {
 
   // 스크롤 중복 방지
   const [isThrottled, setIsThrottled] = useState<boolean>(false);
+  const touchStart = useRef<number>(0);
 
   const handleNavigation = useCallback(
-    (e: WheelEvent) => {
+    (e: WheelEvent | TouchEvent) => {
       if (isThrottled) {
         return; // 0.8초 동안은 추가 변경을 막음
       }
 
-      let { deltaY } = e;
       let index = componentIndex;
 
-      // 스크롤 방향에 따라 컴포넌트 번호 변경
-      if (deltaY < 0) {
-        // 스크롤 업
-        index = index === 0 ? components.length - 1 : index - 1;
-      } else if (deltaY > 0) {
-        // 스크롤 다운
-        index = index === components.length - 1 ? 0 : index + 1;
+      if (e instanceof WheelEvent) {
+        let { deltaY } = e;
+
+        // 스크롤 방향에 따라 컴포넌트 번호 변경
+        if (deltaY < 0) {
+          // 스크롤 업
+          index = index === 0 ? components.length - 1 : index - 1;
+        } else if (deltaY > 0) {
+          // 스크롤 다운
+          index = index === components.length - 1 ? 0 : index + 1;
+        }
+      } else if (e instanceof TouchEvent) {
+        e.preventDefault();
+        // 스와이프 방향에 따라 컴포넌트 번호 변경
+        const touchEnd = e.changedTouches[0].clientY;
+        const touchDistance = touchEnd - touchStart.current;
+
+        if (touchDistance > 0) {
+          // 스와이프 다운
+          index = index === 0 ? components.length - 1 : index - 1;
+        } else if (touchDistance < 0) {
+          // 스와이프 업
+          index = index === components.length - 1 ? 0 : index + 1;
+        }
       }
 
+      // 컴포넌트 번호 변경
       setComponentIndex(index);
       // 변경 후 0.8초 동안 추가 변경을 막음
       setIsThrottled(true);
@@ -94,19 +117,30 @@ const Home = () => {
         setIsThrottled(false);
       }, 800);
     },
-    [componentIndex, isThrottled],
+    [componentIndex, isThrottled, components.length],
   );
 
+  // 네비게이션 클릭 이벤트
   const handleClick = useCallback((index: number): void => {
     setComponentIndex(index);
   }, []);
 
+  // 터치 시작 지점 저장
+  const handleTouchStart = useCallback((e: TouchEvent) => {
+    touchStart.current = e.touches[0].clientY;
+  }, []);
+
+  // 스크롤 이벤트 추가
   useEffect(() => {
     window.addEventListener('wheel', handleNavigation);
+    window.addEventListener('touchstart', handleTouchStart);
+    window.addEventListener('touchend', handleNavigation);
     return () => {
       window.removeEventListener('wheel', handleNavigation);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchend', handleNavigation);
     };
-  }, [handleNavigation]);
+  }, [handleNavigation, handleTouchStart]);
 
   return (
     <div className="wrap">
@@ -122,7 +156,7 @@ const Home = () => {
           ))}
         </ul>
       </main>
-      <footer></footer>
+      <Footer />
     </div>
   );
 };

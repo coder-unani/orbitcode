@@ -131,13 +131,15 @@ $point-color: #00b098;
 }
 
 // keyframes
-@include keyframes(float) {
-  0%,
-  100% {
-    top: 40%;
-  }
-  50% {
-    top: 50%;
+@mixin float-keyframes($name, $start, $end) {
+  @include keyframes($name) {
+    0%,
+    100% {
+      top: #{$start};
+    }
+    50% {
+      top: #{$end};
+    }
   }
 }
 
@@ -232,6 +234,7 @@ button.join {
   font-size: 14px;
   font-weight: 700;
   line-height: 1.6;
+  z-index: 1;
 
   i {
     font-size: 18px;
@@ -503,7 +506,6 @@ input {
     position: relative;
     padding: 5px 12px;
     line-height: 1.4;
-    z-index: 1;
 
     .background {
       position: absolute;
@@ -612,7 +614,8 @@ input {
     height: auto;
 
     &::before {
-      display: none;
+      // display: none;
+      left: 0;
     }
 
     h1 {
@@ -965,13 +968,14 @@ input {
     right: -12px;
     transform: translateY(-50%);
     width: 60%;
+    @include float-keyframes(float, 40%, 50%);
     @include animation(float 6s ease-in-out infinite);
   }
 }
 
 @media (max-width: 767px) {
   .about-banner {
-    height: 305px;
+    min-height: 305px;
 
     &::before {
       top: 0;
@@ -1006,7 +1010,7 @@ input {
 
 @media (max-width: 600px) {
   .about-banner {
-    height: auto;
+    min-height: auto;
 
     &::before {
       left: 155px;
@@ -1037,6 +1041,8 @@ input {
       top: unset;
       bottom: -20px;
       opacity: 0.5;
+      @include float-keyframes(float, 70%, 80%);
+      @include animation(float 6s ease-in-out infinite);
     }
   }
 }
@@ -1269,6 +1275,7 @@ input {
       border-radius: 0;
       background-color: initial;
       padding: 0 0 5px;
+      outline: none;
     }
 
     label {
@@ -1278,9 +1285,15 @@ input {
       transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out;
       pointer-events: none;
     }
+
+    input:focus + label,
+    input.has-value + label {
+      top: -15px;
+      font-size: 14px;
+    }
   }
 
-  input[type='submit'] {
+  button.submit {
     width: 400px;
     max-width: 100%;
     font-size: 16px;
@@ -1289,6 +1302,7 @@ input {
     border: none;
     border-radius: 0;
     background-color: $point-color;
+    cursor: pointer;
   }
 }
 
@@ -1358,4 +1372,15 @@ input {
       }
     }
   }
+}
+
+.footer-content {
+  position: absolute;
+  bottom: 0;
+  display: fixed;
+  width: 100%;
+  color: rgba($color: $white, $alpha: 0.6);
+  text-align: center;
+  margin-bottom: 10px;
+  z-index: 10;
 }

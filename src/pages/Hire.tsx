@@ -1,6 +1,27 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const Hire = () => {
+  const nameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+
+  const toggleClass = (ref: HTMLInputElement) => {
+    if (ref.value !== '') {
+      ref.classList.add('has-value');
+    } else {
+      ref.classList.remove('has-value');
+    }
+  };
+
+  useEffect(() => {
+    nameRef.current?.addEventListener('blur', () => {
+      toggleClass(nameRef.current as HTMLInputElement);
+    });
+
+    emailRef.current?.addEventListener('blur', () => {
+      toggleClass(emailRef.current as HTMLInputElement);
+    });
+  }, []);
+
   return (
     <div className="hire">
       <h2>You want us to do</h2>
@@ -43,15 +64,17 @@ const Hire = () => {
         </div>
         <div className="information">
           <div className="name">
-            <input type="text" id="name" spellCheck="false" />
+            <input type="text" id="name" spellCheck="false" ref={nameRef} />
             <label htmlFor="name">Name</label>
           </div>
           <div className="email">
-            <input type="email" id="email" spellCheck="false" />
+            <input type="email" id="email" spellCheck="false" ref={emailRef} />
             <label htmlFor="email">Email</label>
           </div>
         </div>
-        <input type="submit" value="SEND REQUEST" />
+        <button type="button" className="submit">
+          SEND REQUEST
+        </button>
       </form>
     </div>
   );
