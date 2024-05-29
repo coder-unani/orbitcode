@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ReactComponent as Logo } from 'assets/Logo.svg';
 
-const Header = () => {
+interface HeaderProps {
+  componentIndex: number;
+}
+
+const Header = ({ componentIndex }: HeaderProps) => {
   return (
     <header className="header-content">
       <div className="logo">
@@ -10,10 +14,11 @@ const Header = () => {
           <p>ORBITCODE</p>
         </a>
       </div>
-      <button className="join">우리와 같이 떠나요!</button>
+      <button className={`join ${componentIndex !== 0 && componentIndex !== 4 ? 'active' : ''}`}>
+        우리와 같이 떠나요!
+      </button>
       <button className="menu">
         <i className="ri-menu-line"></i>
-        {/* <i className="ri-shining-2-fill"></i> */}
       </button>
     </header>
   );

@@ -199,6 +199,9 @@ body {
   background-image: url('assets/background_black.jpg');
   background-attachment: fixed;
   // @include animation(fade-in-out 6s linear infinite);
+
+  height: 100vh;
+  overflow: hidden;
 }
 
 ol,
@@ -273,7 +276,6 @@ input {
   }
 
   button.join {
-    display: none;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -281,10 +283,15 @@ input {
     line-height: 30px;
     background-color: $point-color;
     padding: 0 20px;
-  }
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease-in-out, visibility 0s 0.4s;
 
-  &.active {
-    display: block;
+    &.active {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.4s ease-in-out 0.4s;
+    }
   }
 
   .menu {
@@ -293,6 +300,14 @@ input {
       font-size: 26px;
       color: $white;
       // color: aquamarine;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .header-content {
+    button.join {
+      display: none;
     }
   }
 }
@@ -317,6 +332,7 @@ input {
     max-height: 750px;
     background-color: $gray-5;
     opacity: 0.35;
+    z-index: 10;
   }
 
   ul {
@@ -334,11 +350,17 @@ input {
     position: relative;
     top: -5px;
     font-size: 6px;
-    color: $point-color;
+    color: $white;
     cursor: pointer;
 
-    &::marker {
+    &.active {
       color: $point-color;
+      transition: color 0.4s ease-in-out;
+    }
+
+    &::marker {
+      list-style-type: disc;
+      font-size: 0.5rem;
     }
 
     &::before {
@@ -347,7 +369,7 @@ input {
       left: 10px;
       font-size: 14px;
       font-weight: 400;
-      color: $white;
+      color: $gray-5;
     }
 
     &:nth-child(1):before {
@@ -368,10 +390,7 @@ input {
 
     &.active::before {
       left: -33px;
-    }
-
-    &.active span {
-      opacity: 1;
+      color: $white;
     }
 
     span {
@@ -382,12 +401,27 @@ input {
       font-weight: 400;
       color: $white;
       opacity: 0;
+      visibility: hidden;
     }
+
+    &.active span {
+      opacity: 1;
+      transition: opacity 0.4s ease-in-out;
+      visibility: visible;
+    }
+  }
+}
+
+@media (max-width: 1180px) {
+  .nav-content {
+    display: none;
   }
 }
 
 // main
 .main-content {
+  position: relative;
+  width: 100%;
   height: 100%;
 
   & > ul {
@@ -397,13 +431,18 @@ input {
   }
 
   & > ul > li {
+    position: absolute;
     width: 100%;
     height: 100%;
     opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease-in-out, visibility 0s 0.4s;
 
     &.active {
       opacity: 1;
-      transition: opacity 0.5s ease-in-out;
+      visibility: visible;
+      transition: opacity 0.4s ease-in-out 0.4s;
+      z-index: 1;
     }
   }
 }
@@ -418,6 +457,12 @@ input {
   max-width: 75%;
   height: 100%;
   margin: 0 auto;
+}
+
+@media (max-width: 1180px) {
+  .intro {
+    max-width: 100%;
+  }
 }
 
 .intro-banner {
@@ -457,6 +502,7 @@ input {
     position: relative;
     padding: 5px 12px;
     line-height: 1.4;
+    z-index: 1;
 
     .background {
       position: absolute;
@@ -556,6 +602,12 @@ input {
     font-size: 30px;
     text-align: center;
     margin: 0 0 20px;
+  }
+}
+
+@media (max-width: 1180px) {
+  .work {
+    max-width: 100%;
   }
 }
 
@@ -669,6 +721,12 @@ input {
   margin: 0 auto;
 }
 
+@media (max-width: 1180px) {
+  .about {
+    max-width: 100%;
+  }
+}
+
 .about-banner {
   position: relative;
   width: 100%;
@@ -751,7 +809,7 @@ input {
     right: -12px;
     transform: translateY(-50%);
     width: 60%;
-    @include animation(float 8s ease-in-out infinite);
+    @include animation(float 6s ease-in-out infinite);
   }
 }
 
@@ -783,7 +841,7 @@ input {
 }
 
 .contact {
-  // position: fixed;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -821,7 +879,7 @@ input {
     }
 
     p {
-      margin-bottom: 14px;
+      margin-top: 0;
     }
   }
 
@@ -854,6 +912,12 @@ input {
   }
 }
 
+@media (max-width: 1180px) {
+  .contact-lockup {
+    max-width: 100%;
+  }
+}
+
 .hire {
   position: relative;
   display: flex;
@@ -868,6 +932,12 @@ input {
   h2 {
     font-size: 30px;
     margin: 0 0 20px;
+  }
+}
+
+@media (max-width: 1180px) {
+  .hire {
+    max-width: 100%;
   }
 }
 

@@ -110,7 +110,7 @@ const Home = () => {
 
   return (
     <div className="wrap">
-      <Header />
+      <Header componentIndex={componentIndex} />
       {/* <Nav componentIndex={componentIndex} toggleIsBreak={toggleIsBreak} /> */}
       <Nav componentIndex={componentIndex} handleClick={handleClick} />
       <main className="main-content">

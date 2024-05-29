@@ -271,7 +271,6 @@ input {
   margin: 0 0 0 10px;
 }
 .header-content button.join {
-  display: none;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -279,9 +278,14 @@ input {
   line-height: 30px;
   background-color: #00b098;
   padding: 0 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease-in-out, visibility 0s 0.4s;
 }
-.header-content.active {
-  display: block;
+.header-content button.join.active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s ease-in-out 0.4s;
 }
 .header-content .menu {
   cursor: pointer;
@@ -465,6 +469,7 @@ input {
   position: relative;
   padding: 5px 12px;
   line-height: 1.4;
+  z-index: 1;
 }
 .intro-banner button.join .background {
   position: absolute;
