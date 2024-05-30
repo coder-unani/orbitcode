@@ -7,7 +7,7 @@ const Work = () => {
       <div className="work-lockup">
         <ul className="slider">
           <li className="slider-item left">
-            <a href="#">
+            <a href="#0">
               <div className="image">
                 <img src="assets/work-2.png" alt="다트" />
               </div>
@@ -19,7 +19,7 @@ const Work = () => {
             </a>
           </li>
           <li className="slider-item center">
-            <a href="#">
+            <a href="#0">
               <div className="image">
                 <img src="assets/work-1.png" alt="로켓" />
               </div>
@@ -31,7 +31,7 @@ const Work = () => {
             </a>
           </li>
           <li className="slider-item right">
-            <a href="#">
+            <a href="#0">
               <div className="image">
                 <img src="assets/work-3.png" alt="행성" />
               </div>

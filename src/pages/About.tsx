@@ -12,13 +12,13 @@ const About = () => {
         <img src="assets/about.png" alt="우주비행사,행성" />
       </div>
       <div className="about-options">
-        <a href="#">
+        <a href="#0">
           <h3>Groot</h3>
         </a>
-        <a href="#">
+        <a href="#0">
           <h3>Rocket</h3>
         </a>
-        <a href="#">
+        <a href="#0">
           <h3>Thor</h3>
         </a>
       </div>

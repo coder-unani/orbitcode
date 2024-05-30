@@ -3,11 +3,6 @@ import React, { useEffect, useRef } from 'react';
 const Kakao = () => {
   const kakaoRef = useRef<HTMLAnchorElement>(null);
 
-  const handleClick = (e: Event) => {
-    e.preventDefault();
-    chatChannel();
-  };
-
   const chatChannel = () => {
     if ((window as any).Kakao && (window as any).Kakao.Channel) {
       (window as any).Kakao.Channel.chat({
@@ -30,16 +25,19 @@ const Kakao = () => {
     };
     document.body.appendChild(script);
 
-    kakaoRef.current?.addEventListener('click', handleClick);
-    return () => {
-      kakaoRef.current?.removeEventListener('click', handleClick);
-    };
+    kakaoRef.current?.addEventListener('click', (e: Event) => {
+      e.preventDefault();
+      chatChannel();
+    });
+    // return () => {
+    //   kakaoRef.current?.removeEventListener('click', handleClick);
+    // };
   }, []);
 
   return (
     <div className="modal-kakao">
       {/* <a id="chat-channel-button" href="#" ref={kakaoRef}> */}
-      <a id="chat-channel-button" href="http://pf.kakao.com/_xkHxlxcG/chat" target="_blank">
+      <a id="chat-channel-button" href="http://pf.kakao.com/_xkHxlxcG/chat" target="_blank" rel="noreferrer">
         <img src="assets/kakaotalk-consult.png" alt="카카오톡 채널 채팅하기 버튼" />
       </a>
     </div>

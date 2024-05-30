@@ -1,4 +1,4 @@
-import React, { MouseEventHandler, useEffect } from 'react';
+import React from 'react';
 
 interface NavProps {
   componentIndex: number;

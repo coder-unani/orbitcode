@@ -11,17 +11,17 @@ const Contact = () => {
           </div>
           <ul className="options">
             <li>
-              <a href="#" className="facebook disabled">
+              <a href="#0" className="facebook disabled">
                 facebook
               </a>
             </li>
             <li>
-              <a href="#" className="twitter disabled">
+              <a href="#0" className="twitter disabled">
                 twitter
               </a>
             </li>
             <li>
-              <a href="http://pf.kakao.com/_xkHxlxcG/chat" target="_blank" className="kakao">
+              <a href="http://pf.kakao.com/_xkHxlxcG/chat" target="_blank" rel="noreferrer" className="kakao">
                 kakao
               </a>
             </li>
