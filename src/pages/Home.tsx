@@ -1,19 +1,21 @@
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Header from 'components/Header';
 import Nav from 'components/Nav';
 import Intro from 'pages/Intro';
 import Work from 'pages/Work';
-import { useCallback, useEffect, useRef, useState } from 'react';
-import 'styles/Home.css';
 import About from './About';
 import Contact from './Contact';
 import Hire from './Hire';
 import Footer from 'components/Footer';
+import Kakao from 'components/Kakao';
+import 'styles/Home.css';
+import myVideo from 'assets/background_space.mp4';
 
 /**
  * @TODOS
  * - 카카오톡 문의 기능 추가
  * - work component에 gallery 추가
- * - join 버튼 클릭 시 hire component로 이동
+ * - join 버튼 클릭 시 hire component로 이동: 콘텐츠 번호 전역으로 관리, join 버튼 컴포넌트로 분리
  * - about component에 team 정보 추가
  * - contact component에 버튼 수정
  * - hire component에 form 기능 추가
@@ -22,9 +24,6 @@ import Footer from 'components/Footer';
 const Home = () => {
   // 컴포넌트 번호
   const [componentIndex, setComponentIndex] = useState<number>(0);
-
-  // 컴포넌트 리스트
-  const components = [<Intro />, <Work />, <About />, <Contact />, <Hire />];
 
   /*
   // 스크롤 중복 방지
@@ -71,7 +70,22 @@ const Home = () => {
 
   // 스크롤 중복 방지
   const [isThrottled, setIsThrottled] = useState<boolean>(false);
+
+  // 스와이프 시작 지점
   const touchStart = useRef<number>(0);
+
+  // 네비게이션 클릭 이벤트
+  const handleClick = useCallback((index: number): void => {
+    setComponentIndex(index);
+  }, []);
+
+  // 터치 시작 지점 저장
+  const handleTouchStart = useCallback((e: TouchEvent) => {
+    touchStart.current = e.touches[0].clientY;
+  }, []);
+
+  // 컴포넌트 리스트
+  const components = [<Intro handleClick={handleClick} />, <Work />, <About />, <Contact />, <Hire />];
 
   const handleNavigation = useCallback(
     (e: WheelEvent | TouchEvent) => {
@@ -120,16 +134,6 @@ const Home = () => {
     [componentIndex, isThrottled, components.length],
   );
 
-  // 네비게이션 클릭 이벤트
-  const handleClick = useCallback((index: number): void => {
-    setComponentIndex(index);
-  }, []);
-
-  // 터치 시작 지점 저장
-  const handleTouchStart = useCallback((e: TouchEvent) => {
-    touchStart.current = e.touches[0].clientY;
-  }, []);
-
   // 스크롤 이벤트 추가
   useEffect(() => {
     window.addEventListener('wheel', handleNavigation);
@@ -144,7 +148,8 @@ const Home = () => {
 
   return (
     <div className="wrap">
-      <Header componentIndex={componentIndex} />
+      <video src={myVideo} typeof="video/mp4" autoPlay loop muted></video>
+      <Header componentIndex={componentIndex} handleClick={handleClick} />
       {/* <Nav componentIndex={componentIndex} toggleIsBreak={toggleIsBreak} /> */}
       <Nav componentIndex={componentIndex} handleClick={handleClick} />
       <main className="main-content">
@@ -156,6 +161,7 @@ const Home = () => {
           ))}
         </ul>
       </main>
+      <Kakao />
       <Footer />
     </div>
   );

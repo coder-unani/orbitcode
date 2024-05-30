@@ -11,13 +11,24 @@ const Contact = () => {
           </div>
           <ul className="options">
             <li>
-              <a href="#">facebook</a>
+              <a href="#" className="facebook disabled">
+                facebook
+              </a>
             </li>
             <li>
-              <a href="#">twitter</a>
+              <a href="#" className="twitter disabled">
+                twitter
+              </a>
             </li>
             <li>
-              <a href="mailto:info@orbitcode.kr">CONTACT US</a>
+              <a href="http://pf.kakao.com/_xkHxlxcG/chat" target="_blank" className="kakao">
+                kakao
+              </a>
+            </li>
+            <li>
+              <a href="mailto:info@orbitcode.kr" className="email">
+                CONTACT US
+              </a>
             </li>
           </ul>
         </div>

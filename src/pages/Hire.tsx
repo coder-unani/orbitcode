@@ -31,34 +31,34 @@ const Hire = () => {
             <input type="checkbox" id="opt-1" value="homepage" />
             <label htmlFor="opt-1">
               <i className="ri-check-line"></i>
-              Homepage
+              <span className="text-en">Homepage</span>
+              <span className="text-kr">홈페이지</span>
             </label>
             <input type="checkbox" id="opt-2" value="shoppingmall" />
             <label htmlFor="opt-2">
               <i className="ri-check-line"></i>
-              Shopping Mall
+              <span className="text-en">Shopping Mall</span>
+              <span className="text-kr">쇼핑몰</span>
             </label>
             <input type="checkbox" id="opt-3" value="blog" />
             <label htmlFor="opt-3">
               <i className="ri-check-line"></i>
-              Blog
+              <span className="text-en">Blog</span>
+              <span className="text-kr">블로그</span>
             </label>
           </span>
           <span className="options-b">
             <input type="checkbox" id="opt-4" value="webdesign" />
             <label htmlFor="opt-4">
               <i className="ri-check-line"></i>
-              Web Design
+              <span className="text-en">Web Design</span>
+              <span className="text-kr">웹 디자인</span>
             </label>
-            <input type="checkbox" id="opt-5" value="ui/ux" />
+            <input type="checkbox" id="opt-5" value="marketing" />
             <label htmlFor="opt-5">
               <i className="ri-check-line"></i>
-              UI / UX
-            </label>
-            <input type="checkbox" id="opt-6" value="marketing" />
-            <label htmlFor="opt-6">
-              <i className="ri-check-line"></i>
-              Marketing
+              <span className="text-en">Marketing</span>
+              <span className="text-kr">마케팅</span>
             </label>
           </span>
         </div>
@@ -73,7 +73,7 @@ const Hire = () => {
           </div>
         </div>
         <button type="button" className="submit">
-          SEND REQUEST
+          임무 요청하기 🚀
         </button>
       </form>
     </div>

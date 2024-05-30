@@ -180,6 +180,17 @@ body {
   overflow: hidden;
 }
 
+video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  object-fit: cover;
+}
+
 ol,
 ul,
 li {
@@ -253,8 +264,7 @@ input {
   left: 50%;
   transform: translate(-50%, -50%);
   line-height: 30px;
-  background-color: #00b098;
-  padding: 0 20px;
+  padding: 5px 15px;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.4s ease-in-out, visibility 0s 0.4s;
@@ -263,6 +273,46 @@ input {
   opacity: 1;
   visibility: visible;
   transition: opacity 0.4s ease-in-out 0.4s;
+}
+.header-content button.join .background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-color: #000000;
+  border-radius: 20px;
+  transition: background-color 0.2s ease-in-out;
+  overflow: hidden;
+  z-index: -1;
+}
+.header-content button.join .background::after {
+  content: "";
+  position: absolute;
+  background: transparent;
+  border-radius: 120px;
+  content: attr(data-text);
+  color: #ffffff;
+  top: 0.4em;
+  left: 0.5em;
+  -moz-user-select: none;
+  user-select: none;
+  user-drag: none;
+}
+.header-content button.join .background::before {
+  content: "";
+  position: absolute;
+  background: transparent;
+  border-radius: 100%;
+  top: 50%;
+  left: 50%;
+  box-shadow: 0 1em 2em 3em rgba(255, 50, 0, 0.5), 4em 0em 2em 2em rgba(155, 50, 0, 0.6), -4em -2em 2em 2em rgba(255, 0, 150, 0.5), -4em 2em 2em 4em rgba(0, 0, 150, 0.5), 0 -3em 2em 3em rgba(120, 250, 0, 0.5), 2em -1em 2em 2em rgba(50, 10, 200, 0.5);
+  width: 0;
+  height: 0;
+  animation: mix 5s linear infinite;
+}
+.header-content button.join:hover .background {
+  background-color: rgba(255, 255, 255, 0.7);
 }
 .header-content .menu {
   cursor: pointer;
@@ -444,7 +494,7 @@ input {
 }
 .intro-banner button.join {
   position: relative;
-  padding: 5px 12px;
+  padding: 5px 15px;
   line-height: 1.4;
 }
 .intro-banner button.join .background {
@@ -455,7 +505,7 @@ input {
   height: 100%;
   background-color: #000000;
   border-radius: 20px;
-  transition: left 0.2s ease-in-out;
+  transition: left 0.2s ease-in-out, background-color 0.2s ease-in-out;
   overflow: hidden;
   z-index: -1;
 }
@@ -486,7 +536,7 @@ input {
 }
 .intro-banner button.join:hover .background {
   left: 0;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.7);
 }
 .intro-banner img {
   position: absolute;
@@ -1008,22 +1058,30 @@ input {
   width: 135px;
   margin: 0 auto 25px;
 }
-.contact-lockup .options li:nth-child(1) {
-  background-color: #1769ff;
-}
-.contact-lockup .options li:nth-child(2) {
-  background-color: #ea4c89;
-}
-.contact-lockup .options li:nth-child(3) {
-  background-color: #00b098;
-  margin-bottom: 0;
-}
 .contact-lockup .options a {
   display: block;
   width: 100%;
   font-weight: 700;
   color: #ffffff;
   padding: 8px 0;
+}
+.contact-lockup .options a.facebook {
+  background-color: #1769ff;
+}
+.contact-lockup .options a.twitter {
+  background-color: #ea4c89;
+}
+.contact-lockup .options a.kakao {
+  background-color: #fee500;
+  color: rgba(0, 0, 0, 0.9);
+}
+.contact-lockup .options a.email {
+  background-color: #00b098;
+  margin-bottom: 0;
+}
+.contact-lockup .options a.disabled {
+  opacity: 0.4;
+  pointer-events: none;
 }
 
 @media (max-width: 1180px) {
@@ -1084,7 +1142,7 @@ input {
   font-weight: 700;
   line-height: 50px;
   text-align: center;
-  border: 2px solid #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.2);
   transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
   margin-bottom: 30px;
   cursor: pointer;
@@ -1096,6 +1154,12 @@ input {
   font-size: 0;
   line-height: 16px;
   transition: font-size 0.2s ease-in-out;
+}
+.work-request .options label .text-en, .work-request .options label:hover .text-kr {
+  display: none;
+}
+.work-request .options label .text-kr, .work-request .options label:hover .text-en {
+  display: inline-block;
 }
 .work-request .options input[type=checkbox]:checked + label {
   background-color: #00b098;
@@ -1123,7 +1187,7 @@ input {
 }
 .work-request .information .name,
 .work-request .information .email {
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 400;
   height: 50px;
   position: relative;
@@ -1159,7 +1223,6 @@ input {
   border: none;
   border-radius: 0;
   background-color: #00b098;
-  cursor: pointer;
 }
 
 @media (max-width: 767px) {
@@ -1213,10 +1276,28 @@ input {
 .footer-content {
   position: absolute;
   bottom: 0;
-  display: fixed;
   width: 100%;
   color: rgba(255, 255, 255, 0.6);
   text-align: center;
   margin-bottom: 10px;
   z-index: 10;
+}
+
+.modal-kakao {
+  position: fixed;
+  bottom: 50px;
+  right: 30px;
+  display: flex;
+  z-index: 100;
+}
+.modal-kakao a {
+  display: block;
+  width: auto;
+  height: 51px;
+  cursor: pointer;
+}
+.modal-kakao img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }

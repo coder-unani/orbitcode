@@ -15,11 +15,13 @@ const Nav = ({ componentIndex, handleClick }: NavProps) => {
   //   toggleIsBreak();
   // }, 800);
 
+  const handleNavClick = (index: number) => handleClick(index);
+
   return (
     <nav className="nav-content">
       <ul>
         {categories.map((category, index) => (
-          <li key={index} className={index === componentIndex ? 'active' : ''} onClick={() => handleClick(index)}>
+          <li key={index} className={index === componentIndex ? 'active' : ''} onClick={() => handleNavClick(index)}>
             <span>{category}</span>
           </li>
         ))}

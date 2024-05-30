@@ -1,6 +1,6 @@
 {
   "name": "orbitcode",
-  "version": "0.1.0",
+  "version": "1.15",
   "private": true,
   "dependencies": {
     "@fontsource-variable/montserrat": "^5.0.19",

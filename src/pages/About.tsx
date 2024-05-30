@@ -13,13 +13,13 @@ const About = () => {
       </div>
       <div className="about-options">
         <a href="#">
-          <h3>title</h3>
+          <h3>Groot</h3>
         </a>
         <a href="#">
-          <h3>title</h3>
+          <h3>Rocket</h3>
         </a>
         <a href="#">
-          <h3>title</h3>
+          <h3>Thor</h3>
         </a>
       </div>
     </div>
