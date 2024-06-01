@@ -25,8 +25,6 @@ const Home = () => {
   // 돌아가기
   const outerNavReturnRef = useRef<HTMLDivElement>(null);
 
-  const vhRef = useRef<number>(0);
-
   // 터치 시작 지점 저장
   const handleTouchStart = useCallback((e: TouchEvent) => {
     touchStart.current = e.touches[0].clientY;
@@ -78,6 +76,13 @@ const Home = () => {
     [componentIndex, isThrottled, themes.length, handleNavClick, isMenuOpen],
   );
 
+  // vh 단위 계산
+  const setScreenSize = () => {
+    let vh: number = 0;
+    vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  };
+
   // 스크롤 이벤트 추가
   useEffect(() => {
     window.addEventListener('wheel', handleNavigation);
@@ -96,11 +101,14 @@ const Home = () => {
     });
   }, [handleMenuClick]);
 
-  // vh 단위 설정
+  // 화면 크기 변경 시 vh 단위 계산
   useEffect(() => {
-    const viewport: Element | null = document.querySelector('.viewport');
-    vhRef.current = window.innerHeight * 0.01;
-    viewport?.setAttribute('style', `--vh: ${vhRef.current}px`);
+    setScreenSize();
+
+    window.addEventListener('resize', setScreenSize);
+    return () => {
+      window.removeEventListener('resize', setScreenSize);
+    };
   }, []);
 
   return (
