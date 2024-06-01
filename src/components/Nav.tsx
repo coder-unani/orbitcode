@@ -7,7 +7,7 @@ const Nav = () => {
   const handleClick = (index: number) => handleNavClick(index);
 
   return (
-    <nav className="nav-content">
+    <nav className="nav">
       <ul>
         {themes.map((theme, index) => (
           <li key={index} className={index === componentIndex ? 'active' : ''} onClick={() => handleClick(index)}>

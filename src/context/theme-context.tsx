@@ -75,8 +75,8 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 const handleToggleMenu = (isMenuOpen: boolean) => {
   const perspective: Element | null = document.querySelector('.perspective');
   const outerNavReturn: Element | null = document.querySelector('.outer-nav-return');
-  const outerNav: Element | null = document.querySelector('.outer-nav-content');
-  const outerNavList: NodeListOf<Element> | null = document.querySelectorAll('.outer-nav-content li');
+  const outerNav: Element | null = document.querySelector('.outer-nav');
+  const outerNavList: NodeListOf<Element> | null = document.querySelectorAll('.outer-nav li');
   const animationDuration: number = isMenuOpen ? 25 : 400;
 
   perspective?.classList.toggle('effect-rotate-left-animate');

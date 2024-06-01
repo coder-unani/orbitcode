@@ -1,0 +1,9 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: rgba($color: $white, $alpha: 0.6);
+  text-align: center;
+  margin-bottom: 10px;
+  z-index: 10;
+}

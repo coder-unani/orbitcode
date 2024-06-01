@@ -11,7 +11,7 @@ const JoinButton = ({ children }: { children: ReactNode }) => {
     } else {
       joinButtonRef.current?.classList.remove('active');
     }
-  }, [componentIndex]);
+  }, [componentIndex, themes]);
 
   const handleButtonClick = () => {
     themes.find((theme, index) => theme.category === 'Hire us' && handleNavClick(index));

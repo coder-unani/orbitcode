@@ -4,7 +4,7 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="footer-content">
+    <footer className="footer">
       <p>© {year}. Orbitcode Co. All rights reserved.</p>
     </footer>
   );

@@ -10,7 +10,7 @@ const OuterNav = () => {
   };
 
   return (
-    <ul className="outer-nav-content">
+    <ul className="outer-nav">
       {themes.map((theme, index) => (
         <li key={index} className={index === componentIndex ? 'active' : ''} onClick={() => handleClick(index)}>
           <span>{theme.category}</span>

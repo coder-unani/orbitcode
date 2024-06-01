@@ -96,7 +96,7 @@ const Home = () => {
     outerNavReturnRef.current?.addEventListener('click', () => {
       handleMenuClick();
     });
-  }, []);
+  }, [handleMenuClick]);
 
   return (
     <>
@@ -108,7 +108,7 @@ const Home = () => {
             <div className="wrap">
               <Header />
               <Nav />
-              <main className="main-content">
+              <main className="main">
                 <ul>
                   {themes.map((theme, index) => (
                     <li key={index} className={index === componentIndex ? 'active' : ''}>

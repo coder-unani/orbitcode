@@ -1,0 +1,108 @@
+.nav {
+  position: absolute;
+  left: 0;
+  display: flex;
+  height: 100%;
+  align-items: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    display: block;
+    width: 2px;
+    height: 70%;
+    max-height: 750px;
+    background-color: $gray-5;
+    opacity: 0.35;
+    z-index: 10;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100px;
+    height: 70%;
+    max-height: 750px;
+    list-style-position: inside;
+    z-index: 10;
+  }
+
+  li {
+    position: relative;
+    top: -5px;
+    font-size: 6px;
+    color: $white;
+    cursor: pointer;
+
+    &.active {
+      color: $point-color;
+      transition: color 0.4s ease-in-out;
+    }
+
+    &::marker {
+      list-style-type: disc;
+      font-size: 0.5rem;
+    }
+
+    &::before {
+      position: absolute;
+      top: 3px;
+      left: 10px;
+      font-size: 14px;
+      font-weight: 400;
+      color: $gray-5;
+    }
+
+    &:nth-child(1):before {
+      content: '01';
+    }
+
+    &:nth-child(2):before {
+      content: '02';
+    }
+
+    &:nth-child(3):before {
+      content: '03';
+    }
+
+    &:nth-child(4):before {
+      content: '04';
+    }
+
+    &:nth-child(5):before {
+      content: '05';
+    }
+
+    &.active::before {
+      left: -33px;
+      color: $white;
+    }
+
+    span {
+      position: relative;
+      top: 3px;
+      left: 10px;
+      font-size: 14px;
+      font-weight: 400;
+      color: $white;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    &.active span {
+      opacity: 1;
+      transition: opacity 0.4s ease-in-out;
+      visibility: visible;
+    }
+  }
+}
+
+@media (max-width: 1180px) {
+  .nav {
+    display: none;
+  }
+}

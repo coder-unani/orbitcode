@@ -1,0 +1,20 @@
+.modal-kakao {
+  position: fixed;
+  bottom: 50px;
+  right: 30px;
+  display: flex;
+  z-index: 100;
+
+  a {
+    display: block;
+    width: auto;
+    height: 51px;
+    cursor: pointer;
+  }
+
+  img {
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+  }
+}
