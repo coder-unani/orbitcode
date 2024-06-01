@@ -17,63 +17,63 @@ const Work = () => {
       id: '1',
       name: '1300K',
       url: '//1300k.com/',
-      image: 'assets/project_1.png',
+      image: 'assets/project-1.png',
       category: ['homepage', 'website'],
     },
     {
       id: '2',
       name: 'OTT DATA CRAWLING',
       url: '#',
-      image: 'assets/project_2.png',
+      image: 'assets/project-2.png',
       category: ['programming', 'data'],
     },
     {
       id: '3',
       name: 'TODAYSTORY',
       url: '//picks.my/ko_v2/index.html',
-      image: 'assets/project_3.png',
+      image: 'assets/project-3.png',
       category: ['homepage', 'website'],
     },
     {
       id: '4',
       name: 'ORBITCODE V1.0',
       url: '//www.orbitcode.co.kr/orbitcode/',
-      image: 'assets/project_4.png',
+      image: 'assets/project-4.png',
       category: ['homepage', 'website'],
     },
     {
       id: '5',
       name: 'ORBITCODE V1.14',
       url: '//www.orbitcode.kr',
-      image: 'assets/project_5.png',
+      image: 'assets/project-5.png',
       category: ['homepage', 'website'],
     },
     {
       id: '6',
       name: 'WEBSITE',
       url: '//design81669.imweb.me/',
-      image: 'assets/project_6.png',
+      image: 'assets/project-6.png',
       category: ['homepage', ' website'],
     },
     {
       id: '7',
       name: 'NAMARI',
       url: '//www.orbitcode.co.kr/namari/',
-      image: 'assets/project_7.png',
+      image: 'assets/project-7.png',
       category: ['homepage', 'website'],
     },
     {
       id: '8',
       name: 'AGENCY',
       url: '//www.orbitcode.co.kr/agency/',
-      image: 'assets/project_8.png',
+      image: 'assets/project-8.png',
       category: ['homepage', 'website'],
     },
     {
       id: '9',
       name: 'OUTDOORS',
       url: '//www.orbitcode.co.kr/outdoors/',
-      image: 'assets/project_9.png',
+      image: 'assets/project-9.png',
       category: ['homepage', 'website'],
     },
   ];
@@ -89,6 +89,19 @@ const Work = () => {
         }
       });
     });
+
+    const prevButton = document.querySelector('.swiper-button-prev');
+    const nextButton = document.querySelector('.swiper-button-next');
+
+    prevButton?.addEventListener('click', (e: Event) => {
+      e.preventDefault();
+      e.stopPropagation();
+    });
+
+    nextButton?.addEventListener('click', (e: Event) => {
+      e.preventDefault();
+      e.stopPropagation();
+    });
   }, []);
 
   return (
@@ -99,7 +112,7 @@ const Work = () => {
           modules={[Navigation, EffectCoverflow, Autoplay]}
           spaceBetween={10}
           slidesPerView={2.2}
-          navigation
+          navigation={{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }}
           centeredSlides
           autoplay={{ delay: 5000, disableOnInteraction: false }}
           loop
@@ -144,6 +157,8 @@ const Work = () => {
               </a>
             </SwiperSlide>
           ))}
+          <div className="swiper-button-prev"></div>
+          <div className="swiper-button-next"></div>
         </Swiper>
       </div>
     </div>

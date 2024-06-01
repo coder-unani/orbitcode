@@ -13,15 +13,15 @@ const About = () => {
       </div>
       <div className="about-options">
         <a href="#0">
-          <img src="assets/about_groot_3.png" alt="groot" />
+          <img src="assets/about-groot.png" alt="groot" />
           <h3>Groot</h3>
         </a>
         <a href="#0">
-          <img src="assets/about_rocket_3.png" alt="rocket" />
+          <img src="assets/about-rocket.png" alt="rocket" />
           <h3>Rocket</h3>
         </a>
         <a href="#0">
-          <img src="assets/about_thor_3.png" alt="thor" />
+          <img src="assets/about-thor.png" alt="thor" />
           <h3>Thor</h3>
         </a>
       </div>

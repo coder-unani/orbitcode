@@ -5,8 +5,7 @@ import Nav from 'components/Nav';
 import Footer from 'components/Footer';
 import Kakao from 'components/Kakao';
 import OuterNav from 'components/OuterNav';
-import 'styles/Main.css';
-import myVideo from 'assets/background_space.mp4';
+import myVideo from 'assets/background-space.mp4';
 
 /**
  * @TODOS
@@ -53,7 +52,6 @@ const Home = () => {
           index = index === themes.length - 1 ? 0 : index + 1;
         }
       } else if (e instanceof TouchEvent) {
-        e.preventDefault();
         // 스와이프 방향에 따라 컴포넌트 번호 변경
         const touchEnd = e.changedTouches[0].clientY;
         const touchDistance = touchEnd - touchStart.current;
