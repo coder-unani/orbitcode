@@ -1,54 +1,147 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, EffectCoverflow, Autoplay } from 'swiper/modules';
+import 'swiper/css';
 
 const Work = () => {
+  interface Project {
+    id: string;
+    name: string;
+    url: string;
+    image: string;
+    category: string[];
+  }
+
+  const projects: Project[] = [
+    {
+      id: '1',
+      name: '1300K',
+      url: '//1300k.com/',
+      image: 'assets/project_1.png',
+      category: ['homepage', 'website'],
+    },
+    {
+      id: '2',
+      name: 'OTT DATA CRAWLING',
+      url: '#',
+      image: 'assets/project_2.png',
+      category: ['programming', 'data'],
+    },
+    {
+      id: '3',
+      name: 'TODAYSTORY',
+      url: '//picks.my/ko_v2/index.html',
+      image: 'assets/project_3.png',
+      category: ['homepage', 'website'],
+    },
+    {
+      id: '4',
+      name: 'ORBITCODE V1.0',
+      url: '//www.orbitcode.co.kr/orbitcode/',
+      image: 'assets/project_4.png',
+      category: ['homepage', 'website'],
+    },
+    {
+      id: '5',
+      name: 'ORBITCODE V1.14',
+      url: '//www.orbitcode.kr',
+      image: 'assets/project_5.png',
+      category: ['homepage', 'website'],
+    },
+    {
+      id: '6',
+      name: 'WEBSITE',
+      url: '//design81669.imweb.me/',
+      image: 'assets/project_6.png',
+      category: ['homepage', ' website'],
+    },
+    {
+      id: '7',
+      name: 'NAMARI',
+      url: '//www.orbitcode.co.kr/namari/',
+      image: 'assets/project_7.png',
+      category: ['homepage', 'website'],
+    },
+    {
+      id: '8',
+      name: 'AGENCY',
+      url: '//www.orbitcode.co.kr/agency/',
+      image: 'assets/project_8.png',
+      category: ['homepage', 'website'],
+    },
+    {
+      id: '9',
+      name: 'OUTDOORS',
+      url: '//www.orbitcode.co.kr/outdoors/',
+      image: 'assets/project_9.png',
+      category: ['homepage', 'website'],
+    },
+  ];
+
+  useEffect(() => {
+    const slide = document.querySelectorAll('.swiper-slide');
+
+    slide.forEach((item) => {
+      item.addEventListener('click', (e: Event) => {
+        if (item.classList.contains('swiper-slide-prev') || item.classList.contains('swiper-slide-next')) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      });
+    });
+  }, []);
+
   return (
     <div className="work">
       <h2>Works</h2>
       <div className="work-lockup">
-        <ul className="slider">
-          <li className="slider-item left">
-            <a href="#0">
-              <div className="image">
-                <img src="assets/work-2.png" alt="다트" />
-              </div>
-              <p className="title">맞춤형 솔루션</p>
-              <p className="description">
-                각 고객의 요구에 맞춘 맞춤형 웹 솔루션을 제공하며, 유연하고 확장 가능한 웹사이트를 구축하여 비즈니스
-                성장에 기여합니다.
-              </p>
-            </a>
-          </li>
-          <li className="slider-item center">
-            <a href="#0">
-              <div className="image">
-                <img src="assets/work-1.png" alt="로켓" />
-              </div>
-              <p className="title">혁신적인 디자인</p>
-              <p className="description">
-                독창적이고 시선을 사로잡는 디자인으로 브랜드의 개성을 돋보이게 하며, 최신 디자인 트렌드를 반영하여
-                사용자 경험을 극대화합니다.
-              </p>
-            </a>
-          </li>
-          <li className="slider-item right">
-            <a href="#0">
-              <div className="image">
-                <img src="assets/work-3.png" alt="행성" />
-              </div>
-              <p className="title">지속적인 지원</p>
-              <p className="description">
-                프로젝트 완료 후에도 지속적인 유지 보수와 지원을 통해 웹사이트의 안정성을 보장하며, 정기적인 업데이트와
-                최적화를 통해 항상 최신 상태를 유지합니다.
-              </p>
-            </a>
-          </li>
-        </ul>
-        <div className="slider-prev">
-          <i className="ri-arrow-left-line"></i>
-        </div>
-        <div className="slider-next">
-          <i className="ri-arrow-right-line"></i>
-        </div>
+        <Swiper
+          modules={[Navigation, EffectCoverflow, Autoplay]}
+          spaceBetween={10}
+          slidesPerView={2.2}
+          navigation
+          centeredSlides
+          autoplay={{ delay: 5000, disableOnInteraction: false }}
+          loop
+          loopAddBlankSlides
+          effect="coverflow"
+          coverflowEffect={{
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+            scale: 0.8,
+          }}
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 10,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 10,
+            },
+          }}
+        >
+          {projects.map((project) => (
+            <SwiperSlide key={project.id}>
+              <a href={project.url} target="_blank" rel="noreferrer">
+                <div className="image-wrap">
+                  <img src={project.image} alt={project.name} />
+                </div>
+                <div className="text-wrap">
+                  <h5>{project.name}</h5>
+                  <p>{project.category.join(' / ')}</p>
+                </div>
+              </a>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </div>
   );
