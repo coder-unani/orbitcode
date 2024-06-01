@@ -558,7 +558,7 @@ video {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   position: relative;
   width: 100%;
-  min-height: calc(var(--vh, 1vh) * 100);
+  height: calc(var(--vh, 1vh) * 100);
   box-shadow: 0 0 45px 5px rgba(0, 0, 0, 0.85);
   overflow: hidden;
 }
@@ -567,7 +567,7 @@ video {
   position: relative;
   width: 90%;
   max-width: 1440px;
-  height: 100vh;
+  height: 100%;
   margin: 0 auto;
 }
 
