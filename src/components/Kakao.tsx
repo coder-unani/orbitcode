@@ -1,7 +1,10 @@
 import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 const Kakao = () => {
   const kakaoRef = useRef<HTMLAnchorElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
+  const imageURL = window.innerWidth < 600 ? 'assets/kakaotalk-consult-mobile.png' : 'assets/kakaotalk-consult.png';
 
   const chatChannel = () => {
     if ((window as any).Kakao && (window as any).Kakao.Channel) {
@@ -29,16 +32,21 @@ const Kakao = () => {
       e.preventDefault();
       chatChannel();
     });
-    // return () => {
-    //   kakaoRef.current?.removeEventListener('click', handleClick);
-    // };
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth < 600) {
+        imageRef.current?.setAttribute('src', 'assets/kakaotalk-consult-mobile.png');
+      } else {
+        imageRef.current?.setAttribute('src', 'assets/kakaotalk-consult.png');
+      }
+    });
   }, []);
 
   return (
     <div className="modal-kakao">
-      <a id="chat-channel-button" href="http://pf.kakao.com/_xkHxlxcG/chat" target="_blank" rel="noreferrer">
-        <img src="assets/kakaotalk-consult.png" alt="카카오톡 채널 채팅하기 버튼" />
-      </a>
+      <Link id="chat-channel-button" to="/" target="_blank" rel="noreferrer" ref={kakaoRef}>
+        <img src={imageURL} alt="카카오톡 채널 채팅하기 버튼" ref={imageRef} />
+      </Link>
     </div>
   );
 };

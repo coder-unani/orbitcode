@@ -1,4 +1,4 @@
-.intro {
+.home {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -10,12 +10,12 @@
 }
 
 @media (max-width: 1180px) {
-  .intro {
+  .home {
     max-width: 100%;
   }
 }
 
-.intro-banner {
+.home-banner {
   position: relative;
   height: 475px;
 
@@ -110,7 +110,7 @@
 }
 
 @media (max-width: 900px) {
-  .intro-banner {
+  .home-banner {
     height: 380px;
 
     h1 {
@@ -124,7 +124,7 @@
 }
 
 @media (max-width: 767px) {
-  .intro-banner {
+  .home-banner {
     height: 305px;
 
     h1 {
@@ -138,7 +138,7 @@
 }
 
 @media (max-width: 600px) {
-  .intro-banner {
+  .home-banner {
     height: auto;
     padding-bottom: 50px;
 
@@ -157,7 +157,7 @@
 }
 
 @media (max-width: 600px) and (max-height: 750px) {
-  .intro-banner {
+  .home-banner {
     height: auto;
 
     &::before {
@@ -170,7 +170,7 @@
   }
 }
 
-.intro-options {
+.home-options {
   display: flex;
   justify-content: space-between;
 
@@ -200,7 +200,7 @@
 }
 
 @media (max-width: 900px) {
-  .intro-options {
+  .home-options {
     a {
       margin-right: 30px;
     }
@@ -212,7 +212,7 @@
 }
 
 @media (max-width: 767px) {
-  .intro-options {
+  .home-options {
     flex-direction: column;
 
     a {
@@ -223,7 +223,13 @@
 }
 
 @media (max-width: 600px) and (max-height: 750px) {
-  .intro-options {
+  .home-options {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .home-options {
     display: none;
   }
 }

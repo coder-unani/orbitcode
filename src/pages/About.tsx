@@ -1,29 +1,35 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 const About = () => {
+  const { t } = useTranslation();
+  const imageBasePath = 'assets/';
+
+  type Team = {
+    name: string;
+    image: string;
+  };
+
+  const teams: Team[] = t(`about.team`, { returnObjects: true }) as Team[];
+
   return (
     <div className="about">
       <div className="about-banner">
-        <h2>우주처럼 무한한 가능성으로 함께 디지털 세상을 탐험해요</h2>
+        <h2>{t(`about.banner.title`)}</h2>
         <button className="join">
-          우리의 궤도 속으로! 💫
+          {t(`about.banner.button`)}
           <i className="ri-arrow-right-line"></i>
         </button>
-        <img src="assets/about.png" alt="우주비행사,행성" />
+        <img src={`${imageBasePath}${t(`about.banner.image`)}`} alt={t(`about.banner.image-alt`)} />
       </div>
       <div className="about-options">
-        <a href="#0">
-          <img src="assets/about-groot.png" alt="groot" />
-          <h3>Groot</h3>
-        </a>
-        <a href="#0">
-          <img src="assets/about-rocket.png" alt="rocket" />
-          <h3>Rocket</h3>
-        </a>
-        <a href="#0">
-          <img src="assets/about-thor.png" alt="thor" />
-          <h3>Thor</h3>
-        </a>
+        {teams.map((team, index) => (
+          <Link to="" key={index}>
+            <img src={`${imageBasePath}${team.image}`} alt={team.name} />
+            <h3>{team.name}</h3>
+          </Link>
+        ))}
       </div>
     </div>
   );

@@ -11,8 +11,6 @@ import myVideo from 'assets/background-space.mp4';
  * @TODOS
  * - 카카오톡 문의 기능 세팅시 변경
  * - hire component에 form 기능 추가
- * - 다국어 지원 추가
- * - 반응형 레이아웃 수정 및 추가
  * - a 태그 href 수정
  * - ? 회사 소개 페이지 추가
  */

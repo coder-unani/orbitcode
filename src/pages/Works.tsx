@@ -2,15 +2,16 @@ import React, { useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, EffectCoverflow, Autoplay } from 'swiper/modules';
 import 'swiper/css';
+import { Link } from 'react-router-dom';
 
-const Work = () => {
-  interface Project {
+const Works = () => {
+  type Project = {
     id: string;
     name: string;
     url: string;
     image: string;
     category: string[];
-  }
+  };
 
   const projects: Project[] = [
     {
@@ -105,9 +106,9 @@ const Work = () => {
   }, []);
 
   return (
-    <div className="work">
+    <div className="works">
       <h2>Works</h2>
-      <div className="work-lockup">
+      <div className="works-lockup">
         <Swiper
           modules={[Navigation, EffectCoverflow, Autoplay]}
           spaceBetween={10}
@@ -146,7 +147,7 @@ const Work = () => {
         >
           {projects.map((project) => (
             <SwiperSlide key={project.id}>
-              <a href={project.url} target="_blank" rel="noreferrer">
+              <Link to={project.url} target="_blank" rel="noreferrer">
                 <div className="image-wrap">
                   <img src={project.image} alt={project.name} />
                 </div>
@@ -154,7 +155,7 @@ const Work = () => {
                   <h5>{project.name}</h5>
                   <p>{project.category.join(' / ')}</p>
                 </div>
-              </a>
+              </Link>
             </SwiperSlide>
           ))}
           <div className="swiper-button-prev"></div>
@@ -165,4 +166,4 @@ const Work = () => {
   );
 };
 
-export default Work;
+export default Works;

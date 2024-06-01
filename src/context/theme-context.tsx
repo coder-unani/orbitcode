@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode, useCallback } from 'react';
-import Intro from 'pages/Intro';
-import Work from 'pages/Work';
+import Home from 'pages/Home';
+import Works from 'pages/Works';
 import About from 'pages/About';
 import Contact from 'pages/Contact';
 import Hire from 'pages/Hire';
@@ -15,11 +15,11 @@ type Themes = Theme[];
 export const themes: Themes = [
   {
     category: 'Home',
-    component: <Intro />,
+    component: <Home />,
   },
   {
     category: 'Works',
-    component: <Work />,
+    component: <Works />,
   },
   {
     category: 'About',
@@ -84,6 +84,21 @@ const handleToggleMenu = (isMenuOpen: boolean) => {
   outerNavReturn?.classList.toggle('active');
   outerNav?.classList.toggle('active');
   outerNavList.forEach((li) => li.classList.toggle('visible'));
+  /*
+  if (isMenuOpen) {
+    perspective?.classList.add('effect-rotate-left-animate');
+    setTimeout(() => perspective?.classList.add('perspective-modalview'), animationDuration);
+    outerNavReturn?.classList.add('active');
+    outerNav?.classList.add('active');
+    outerNavList.forEach((li) => li.classList.add('visible'));
+  } else {
+    perspective?.classList.remove('effect-rotate-left-animate');
+    setTimeout(() => perspective?.classList.remove('perspective-modalview'), animationDuration);
+    outerNavReturn?.classList.remove('active');
+    outerNav?.classList.remove('active');
+    outerNavList.forEach((li) => li.classList.remove('visible'));
+  }
+  */
 };
 
 export const useTheme = () => {

@@ -1,35 +1,45 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 const Contact = () => {
+  const { t } = useTranslation();
+  const imageBasePath = 'assets/';
+
+  type Sns = {
+    type: string;
+    name: string;
+    url: string;
+  };
+
+  const sns: Sns[] = t(`contact.sns`, { returnObjects: true }) as Sns[];
+
+  useEffect(() => {
+    const contact = document.querySelector('.contact');
+    const facebook = document.querySelector('.facebook');
+    const twitter = document.querySelector('.twitter');
+
+    contact?.setAttribute('style', `background-image: url(${imageBasePath}${t(`contact.map`)})`);
+    facebook?.classList.add('disabled');
+    twitter?.classList.add('disabled');
+  }, [t]);
+
   return (
     <div className="contact">
       <div className="contact-lockup">
         <div className="modal">
           <div className="information">
-            <p>경기도 고양시 일산서구 일현로</p>
-            <a href="mailto:info@orbitcode.kr">info@orbitcode.kr</a>
+            <p>{t(`contact.address`)}</p>
+            <Link to={`mailto:${t(`contact.email`)}`}>{t(`contact.email`)}</Link>
           </div>
           <ul className="options">
-            <li>
-              <a href="#0" className="facebook disabled">
-                facebook
-              </a>
-            </li>
-            <li>
-              <a href="#0" className="twitter disabled">
-                twitter
-              </a>
-            </li>
-            <li>
-              <a href="http://pf.kakao.com/_xkHxlxcG/chat" target="_blank" rel="noreferrer" className="kakao">
-                kakao
-              </a>
-            </li>
-            <li>
-              <a href="mailto:info@orbitcode.kr" className="email">
-                CONTACT US
-              </a>
-            </li>
+            {sns.map((item, index) => (
+              <li key={index}>
+                <Link to={item.url} target="_blank" rel="noreferrer" className={item.type}>
+                  {item.name}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

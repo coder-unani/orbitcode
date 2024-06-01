@@ -1,14 +1,42 @@
 import React, { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Hire = () => {
+  const { t } = useTranslation();
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
+  const submitRef = useRef<HTMLButtonElement>(null);
+
+  type Option = {
+    en: string;
+    ko: string;
+  };
+
+  const optionsA: Option[] = t(`hire.options-a`, { returnObjects: true }) as Option[];
+  const optionsB: Option[] = t(`hire.options-b`, { returnObjects: true }) as Option[];
 
   const toggleClass = (ref: HTMLInputElement) => {
     if (ref.value !== '') {
       ref.classList.add('has-value');
     } else {
       ref.classList.remove('has-value');
+    }
+  };
+
+  // submit 이벤트
+  const handleSubmit = () => {
+    const name = nameRef.current?.value;
+    const email = emailRef.current?.value;
+    const options: string[] = Array.from(
+      document.querySelectorAll<HTMLInputElement>('input[type="checkbox"]:checked'),
+    ).map((input) => input.value);
+
+    if (name && email && options.length > 0) {
+      console.log(name, email, options);
+
+      // 메일 보내기
+    } else {
+      alert('Please fill in the form.');
     }
   };
 
@@ -20,51 +48,38 @@ const Hire = () => {
     emailRef.current?.addEventListener('blur', () => {
       toggleClass(emailRef.current as HTMLInputElement);
     });
+
+    submitRef.current?.addEventListener('click', handleSubmit);
   }, []);
 
   return (
     <div className="hire">
-      <h2>You want us to do</h2>
+      <h2>{t(`hire.title`)}</h2>
       <form action="" className="work-request">
         <div className="options">
           <span className="options-a">
-            <input type="checkbox" id="opt-1" value="homepage" />
-            <label htmlFor="opt-1">
-              <i className="ri-check-line"></i>
-              <span className="text-en">Homepage</span>
-              <span className="text-kr">홈페이지</span>
-            </label>
-            <input type="checkbox" id="opt-2" value="shoppingmall" />
-            <label htmlFor="opt-2">
-              <i className="ri-check-line"></i>
-              <span className="text-en">Shopping Mall</span>
-              <span className="text-kr">쇼핑몰</span>
-            </label>
-            <input type="checkbox" id="opt-3" value="blog" />
-            <label htmlFor="opt-3">
-              <i className="ri-check-line"></i>
-              <span className="text-en">Blog</span>
-              <span className="text-kr">블로그</span>
-            </label>
+            {optionsA.map((option, index) => (
+              <React.Fragment key={index}>
+                <input type="checkbox" id={`opt-${index + 1}`} value={option.ko} />
+                <label htmlFor={`opt-${index + 1}`}>
+                  <i className="ri-check-line"></i>
+                  <span className="text-en">{option.en}</span>
+                  <span className="text-kr">{option.ko}</span>
+                </label>
+              </React.Fragment>
+            ))}
           </span>
           <span className="options-b">
-            <input type="checkbox" id="opt-4" value="webdesign" />
-            <label htmlFor="opt-4">
-              <i className="ri-check-line"></i>
-              <span className="text-en">Web Design</span>
-              <span className="text-kr">웹 디자인</span>
-            </label>
-            <input type="checkbox" id="opt-5" value="marketing" />
-            <label htmlFor="opt-5">
-              <i className="ri-check-line"></i>
-              <span className="text-en">Marketing</span>
-              <span className="text-kr">마케팅</span>
-            </label>
-            <label htmlFor="opt-6">
-              <i className="ri-check-line"></i>
-              <span className="text-en">Maintenance</span>
-              <span className="text-kr">유지보수</span>
-            </label>
+            {optionsB.map((option, index) => (
+              <React.Fragment key={index}>
+                <input type="checkbox" id={`opt-${index + 4}`} value={option.ko} />
+                <label htmlFor={`opt-${index + 4}`}>
+                  <i className="ri-check-line"></i>
+                  <span className="text-en">{option.en}</span>
+                  <span className="text-kr">{option.ko}</span>
+                </label>
+              </React.Fragment>
+            ))}
           </span>
         </div>
         <div className="information">
@@ -77,8 +92,8 @@ const Hire = () => {
             <label htmlFor="email">Email</label>
           </div>
         </div>
-        <button type="button" className="submit">
-          임무 요청하기 🚀
+        <button type="button" className="submit" ref={submitRef}>
+          {t(`hire.button`)}
         </button>
       </form>
     </div>

@@ -2,18 +2,22 @@ import React from 'react';
 import JoinButton from './Button/JoinButton';
 import MenuButton from './Button/MenuButton';
 import { ReactComponent as Logo } from 'assets/Logo.svg';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
+  const { t } = useTranslation();
+
   return (
     <header className="header">
       <div className="logo">
-        <a href="/">
+        <Link to="/">
           <Logo fill="white" width={26} height={26} />
-          <p>Orbitcode</p>
-        </a>
+          <p>{t(`header.company`)}</p>
+        </Link>
       </div>
       <JoinButton>
-        우리와 같이 떠나요! 👋
+        {t(`header.button`)}
         <div className="background"></div>
       </JoinButton>
       <MenuButton />

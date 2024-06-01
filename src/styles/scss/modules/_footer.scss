@@ -7,3 +7,9 @@
   margin-bottom: 10px;
   z-index: 10;
 }
+
+@media (max-width: 600px) {
+  .footer {
+    font-size: 12px;
+  }
+}
