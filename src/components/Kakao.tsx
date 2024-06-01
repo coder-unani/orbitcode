@@ -36,7 +36,6 @@ const Kakao = () => {
 
   return (
     <div className="modal-kakao">
-      {/* <a id="chat-channel-button" href="#" ref={kakaoRef}> */}
       <a id="chat-channel-button" href="http://pf.kakao.com/_xkHxlxcG/chat" target="_blank" rel="noreferrer">
         <img src="assets/kakaotalk-consult.png" alt="카카오톡 채널 채팅하기 버튼" />
       </a>

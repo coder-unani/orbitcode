@@ -1,14 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import JoinButton from './Button/JoinButton';
 import { ReactComponent as Logo } from 'assets/Logo.svg';
 
-interface HeaderProps {
-  componentIndex: number;
-  handleClick: (index: number) => void;
-}
-
-const Header = ({ componentIndex, handleClick }: HeaderProps) => {
-  const handleButtonClick = () => handleClick(4);
-
+const Header = () => {
   return (
     <header className="header-content">
       <div className="logo">
@@ -17,13 +11,10 @@ const Header = ({ componentIndex, handleClick }: HeaderProps) => {
           <p>Orbitcode</p>
         </a>
       </div>
-      <button
-        className={`join ${componentIndex !== 0 && componentIndex !== 4 ? 'active' : ''}`}
-        onClick={() => handleButtonClick()}
-      >
+      <JoinButton>
         우리와 같이 떠나요! 👋
         <div className="background"></div>
-      </button>
+      </JoinButton>
       <button className="menu">
         <i className="ri-menu-line"></i>
       </button>

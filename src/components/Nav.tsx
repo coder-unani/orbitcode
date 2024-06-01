@@ -1,28 +1,18 @@
 import React from 'react';
+import { useTheme } from 'context/theme-context';
 
-interface NavProps {
-  componentIndex: number;
-  handleClick: (index: number) => void;
-  // toggleIsBreak: () => void;
-}
-
-// const Nav = ({ componentIndex, toggleIsBreak }: NavProps) => {
-const Nav = ({ componentIndex, handleClick }: NavProps) => {
-  // 카테고리 리스트
-  const categories = ['Home', 'Works', 'About', 'Contact', 'Hire us'];
-
-  // setTimeout(() => {
-  //   toggleIsBreak();
-  // }, 800);
-
-  const handleNavClick = (index: number) => handleClick(index);
+const Nav = () => {
+  // context에서 카테고리 목록 가져오기
+  const { themes, componentIndex, handleNavClick } = useTheme();
+  // 클릭 이벤트
+  const handleClick = (index: number) => handleNavClick(index);
 
   return (
     <nav className="nav-content">
       <ul>
-        {categories.map((category, index) => (
-          <li key={index} className={index === componentIndex ? 'active' : ''} onClick={() => handleNavClick(index)}>
-            <span>{category}</span>
+        {themes.map((theme, index) => (
+          <li key={index} className={index === componentIndex ? 'active' : ''} onClick={() => handleClick(index)}>
+            <span>{theme.category}</span>
           </li>
         ))}
       </ul>

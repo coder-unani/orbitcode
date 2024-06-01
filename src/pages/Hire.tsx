@@ -60,6 +60,11 @@ const Hire = () => {
               <span className="text-en">Marketing</span>
               <span className="text-kr">마케팅</span>
             </label>
+            <label htmlFor="opt-6">
+              <i className="ri-check-line"></i>
+              <span className="text-en">Maintenance</span>
+              <span className="text-kr">유지보수</span>
+            </label>
           </span>
         </div>
         <div className="information">

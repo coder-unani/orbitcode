@@ -1,12 +1,7 @@
 import React from 'react';
+import JoinButton from 'components/Button/JoinButton';
 
-interface IntroProps {
-  handleClick: (index: number) => void;
-}
-
-const Intro = ({ handleClick }: IntroProps) => {
-  const handleButtonClick = () => handleClick(4);
-
+const Intro = () => {
   return (
     <div className="intro">
       <div className="intro-banner">
@@ -15,11 +10,11 @@ const Intro = ({ handleClick }: IntroProps) => {
           Orbitcode와 함께 디지털 세상을 정복하세요. 최고의 디자인과 혁신적인 기술로 당신의 디지털 존재감을
           극대화합니다.
         </p>
-        <button className="join" onClick={() => handleButtonClick()}>
+        <JoinButton>
           우리와 같이 떠나요! 👋
           <i className="ri-arrow-right-line"></i>
           <div className="background"></div>
-        </button>
+        </JoinButton>
         <img src="assets/intro.png" alt="우주비행사" />
       </div>
       <div className="intro-options">
