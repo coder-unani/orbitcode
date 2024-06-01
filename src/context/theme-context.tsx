@@ -37,23 +37,54 @@ export const themes: Themes = [
 
 type ThemeContextType = {
   themes: Themes;
+  isMenuOpen: boolean;
   componentIndex: number;
+  handleMenuClick: () => void;
   handleNavClick: (index: number) => void;
 };
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
+  // 메뉴
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+
   // 컴포넌트 번호
   const [componentIndex, setComponentIndex] = useState<number>(0);
 
-  // nav 카테고리 클릭시 컴포넌트 변경
-  const handleNavClick = (index: number) => {
-    setComponentIndex(index);
-  };
+  // 메뉴 클릭시 메뉴 열기/닫기
+  const handleMenuClick = useCallback(() => {
+    setIsMenuOpen((prev) => {
+      handleToggleMenu(!prev);
+      return !prev;
+    });
+  }, []);
 
-  return <ThemeContext.Provider value={{ themes, componentIndex, handleNavClick }}>{children}</ThemeContext.Provider>;
+  // nav 카테고리 클릭시 컴포넌트 변경
+  const handleNavClick = useCallback((index: number) => {
+    setComponentIndex(index);
+  }, []);
+
+  return (
+    <ThemeContext.Provider value={{ themes, isMenuOpen, componentIndex, handleMenuClick, handleNavClick }}>
+      {children}
+    </ThemeContext.Provider>
+  );
 }
+
+const handleToggleMenu = (isMenuOpen: boolean) => {
+  const perspective: Element | null = document.querySelector('.perspective');
+  const outerNavReturn: Element | null = document.querySelector('.outer-nav-return');
+  const outerNav: Element | null = document.querySelector('.outer-nav-content');
+  const outerNavList: NodeListOf<Element> | null = document.querySelectorAll('.outer-nav-content li');
+  const animationDuration: number = isMenuOpen ? 25 : 400;
+
+  perspective?.classList.toggle('effect-rotate-left-animate');
+  setTimeout(() => perspective?.classList.toggle('perspective-modalview'), animationDuration);
+  outerNavReturn?.classList.toggle('active');
+  outerNav?.classList.toggle('active');
+  outerNavList.forEach((li) => li.classList.toggle('visible'));
+};
 
 export const useTheme = () => {
   const context = useContext(ThemeContext);

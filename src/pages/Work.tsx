@@ -127,6 +127,9 @@ const Work = () => {
               spaceBetween: 10,
             },
           }}
+          observer
+          observeParents
+          observeSlideChildren
         >
           {projects.map((project) => (
             <SwiperSlide key={project.id}>

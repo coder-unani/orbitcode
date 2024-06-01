@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import JoinButton from './Button/JoinButton';
+import MenuButton from './Button/MenuButton';
 import { ReactComponent as Logo } from 'assets/Logo.svg';
 
 const Header = () => {
@@ -15,9 +16,7 @@ const Header = () => {
         우리와 같이 떠나요! 👋
         <div className="background"></div>
       </JoinButton>
-      <button className="menu">
-        <i className="ri-menu-line"></i>
-      </button>
+      <MenuButton />
     </header>
   );
 };

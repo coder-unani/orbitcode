@@ -2,33 +2,31 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useTheme } from 'context/theme-context';
 import Header from 'components/Header';
 import Nav from 'components/Nav';
-import Intro from 'pages/Intro';
-import Work from 'pages/Work';
-import About from './About';
-import Contact from './Contact';
-import Hire from './Hire';
 import Footer from 'components/Footer';
 import Kakao from 'components/Kakao';
 import OuterNav from 'components/OuterNav';
-import 'styles/Home.css';
+import 'styles/Main.css';
 import myVideo from 'assets/background_space.mp4';
 
 /**
  * @TODOS
- * - 카카오톡 문의 기능 추가
- * - about component에 team 정보 추가
+ * - 카카오톡 문의 기능 세팅시 변경
  * - hire component에 form 기능 추가
+ * - 다국어 지원 추가
+ * - 반응형 레이아웃 수정 및 추가
+ * - a 태그 href 수정
+ * - ? 회사 소개 페이지 추가
  */
 
 const Home = () => {
   // 컴포넌트 세팅
-  const { themes, componentIndex, handleNavClick } = useTheme();
-
+  const { themes, isMenuOpen, componentIndex, handleMenuClick, handleNavClick } = useTheme();
   // 스크롤 중복 방지
   const [isThrottled, setIsThrottled] = useState<boolean>(false);
-
   // 스와이프 시작 지점
   const touchStart = useRef<number>(0);
+  // 돌아가기
+  const outerNavReturnRef = useRef<HTMLDivElement>(null);
 
   // 터치 시작 지점 저장
   const handleTouchStart = useCallback((e: TouchEvent) => {
@@ -38,9 +36,8 @@ const Home = () => {
   // 네비게이션 이벤트 핸들러
   const handleNavigation = useCallback(
     (e: WheelEvent | TouchEvent) => {
-      if (isThrottled) {
-        return; // 0.8초 동안은 추가 변경을 막음
-      }
+      // 메뉴가 열려있으면 스크롤 방지 or 0.8초 동안은 추가 변경을 막음
+      if (isMenuOpen || isThrottled) return;
 
       let index = componentIndex;
 
@@ -80,7 +77,7 @@ const Home = () => {
         setIsThrottled(false);
       }, 800);
     },
-    [componentIndex, isThrottled, themes.length],
+    [componentIndex, isThrottled, themes.length, handleNavClick, isMenuOpen],
   );
 
   // 스크롤 이벤트 추가
@@ -95,29 +92,38 @@ const Home = () => {
     };
   }, [handleNavigation, handleTouchStart]);
 
+  useEffect(() => {
+    outerNavReturnRef.current?.addEventListener('click', () => {
+      handleMenuClick();
+    });
+  }, []);
+
   return (
     <>
-      <div className="container">
-        <div className="viewport">
-          <div className="wrap">
-            <video src={myVideo} typeof="video/mp4" autoPlay loop muted></video>
-            <Header />
-            <Nav />
-            <main className="main-content">
-              <ul>
-                {themes.map((theme, index) => (
-                  <li key={index} className={index === componentIndex ? 'active' : ''}>
-                    {theme.component}
-                  </li>
-                ))}
-              </ul>
-            </main>
-            <Kakao />
-            <Footer />
+      <video src={myVideo} typeof="video/mp4" autoPlay loop muted></video>
+      <div className="perspective effect-rotate-left">
+        <div className="container">
+          <div className="outer-nav-return" ref={outerNavReturnRef}></div>
+          <div className="viewport">
+            <div className="wrap">
+              <Header />
+              <Nav />
+              <main className="main-content">
+                <ul>
+                  {themes.map((theme, index) => (
+                    <li key={index} className={index === componentIndex ? 'active' : ''}>
+                      {theme.component}
+                    </li>
+                  ))}
+                </ul>
+              </main>
+              <Kakao />
+              <Footer />
+            </div>
           </div>
         </div>
+        <OuterNav />
       </div>
-      <OuterNav />
     </>
   );
 };

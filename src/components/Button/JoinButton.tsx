@@ -3,14 +3,13 @@ import { useTheme } from 'context/theme-context';
 
 const JoinButton = ({ children }: { children: ReactNode }) => {
   const { themes, componentIndex, handleNavClick } = useTheme();
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  const joinButtonRef = useRef<HTMLButtonElement>(null);
 
-  // 컴포넌트 변경 시 join 버튼 활성화 (Home, Hire us 제외)
   useEffect(() => {
     if (themes[componentIndex].category !== 'Hire us' && themes[componentIndex].category !== 'Home') {
-      buttonRef.current?.classList.add('active');
+      joinButtonRef.current?.classList.add('active');
     } else {
-      buttonRef.current?.classList.remove('active');
+      joinButtonRef.current?.classList.remove('active');
     }
   }, [componentIndex]);
 
@@ -19,7 +18,7 @@ const JoinButton = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <button className="join" onClick={handleButtonClick} ref={buttonRef}>
+    <button className="join" onClick={handleButtonClick} ref={joinButtonRef}>
       {children}
     </button>
   );

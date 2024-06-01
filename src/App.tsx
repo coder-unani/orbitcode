@@ -1,12 +1,12 @@
 import React from 'react';
-import 'styles/App.css';
-import Home from 'pages/Home';
 import { ThemeProvider } from 'context/theme-context';
+import Main from 'pages/Main';
+import 'styles/App.css';
 
 function App() {
   return (
     <ThemeProvider>
-      <Home />
+      <Main />
     </ThemeProvider>
   );
 }
