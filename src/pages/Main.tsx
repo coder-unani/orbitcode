@@ -25,6 +25,8 @@ const Home = () => {
   // 돌아가기
   const outerNavReturnRef = useRef<HTMLDivElement>(null);
 
+  const vhRef = useRef<number>(0);
+
   // 터치 시작 지점 저장
   const handleTouchStart = useCallback((e: TouchEvent) => {
     touchStart.current = e.touches[0].clientY;
@@ -93,6 +95,13 @@ const Home = () => {
       handleMenuClick();
     });
   }, [handleMenuClick]);
+
+  // vh 단위 설정
+  useEffect(() => {
+    const viewport: Element | null = document.querySelector('.viewport');
+    vhRef.current = window.innerHeight * 0.01;
+    viewport?.setAttribute('style', `--vh: ${vhRef.current}px`);
+  }, []);
 
   return (
     <>
