@@ -1,7 +1,7 @@
 import React from 'react';
 import JoinButton from './Button/JoinButton';
 import MenuButton from './Button/MenuButton';
-import { ReactComponent as Logo } from 'assets/Logo.svg';
+import { ReactComponent as Logo } from 'assets/logo.svg';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
